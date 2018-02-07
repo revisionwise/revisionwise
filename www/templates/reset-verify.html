@@ -1,0 +1,60 @@
+<div class="content auth reset text-center">
+  <img ng-src="assets/img/rw-logo_alt.png" height="42" alt="RevisionWise" class="app-logo" />
+  <div class="register panel text-center border-radius-x2 fade-in-top">
+    <div class="form-wrapper">
+      <h1 class="condensed fc-subtitle" flex>RESET PIN</h1>
+
+      <!-- ****** RESET PIN STEP 2 ****** -->
+
+      <form name="resetForm02" novalidate ng-submit="resetPinStep2(user)">
+        <!-- CODE -->
+        <div class="input-wrapper" ng-class="{ 'input-error' : (submitted && resetForm02.verification.$invalid) || (submitted && resetForm02.verification.$invalid) }">
+          <label class="text-left">&nbsp;Enter verification code <span class="required">*</span></label>
+          <input type="text" name="verification" ng-model="user.verification" ng-minlength="4" ng-maxlength="4" required ng-model-options="{ updateOn: 'blur' }">
+          <div class="help-block" ng-messages="resetForm02.verification.$error" ng-show="submitted">
+            <p ng-message="required">Verification code is required</p>
+            <p ng-message="maxlength">Verification code should be 4 digits</p>
+            <p ng-message="minlength">Verification code should be 4 digits</p>
+          </div>
+          <div class="help-block input-error text-center" ng-show="errorMsg">
+            <p><i class="material-icons md-18">report_problem</i> &nbsp;{{ errorMsg }}</p>
+          </div>
+        </div>
+        <span class="spacer_dashed"></span>
+        <!-- PIN 1 -->
+        <div class="input-wrapper" ng-class="{ 'input-error' : (submitted && resetForm02.pin.$invalid) || (submitted && resetForm02.pin.$invalid) }">
+          <label class="text-left">&nbsp;Enter your new 4-digit pin <span class="required">*</span></label>
+          <input type="password" name="pin" ng-model="user.pin" ng-minlength="4" ng-maxlength="4" required ng-model-options="{ updateOn: 'blur' }">
+          <div class="help-block" ng-messages="resetForm02.pin.$error" ng-show="submitted">
+            <p ng-message="required">Pin is required</p>
+            <p ng-message="maxlength">Pin should be 4 digits</p>
+            <p ng-message="minlength">Pin should be 4 digits</p>
+          </div>
+        </div>
+        <!-- PIN 2 -->
+        <div class="input-wrapper" ng-class="{ 'input-error' : (submitted && resetForm02.confirm_pin.$invalid) || (submitted && resetForm02.confirm_pin.$invalid) }">
+          <label class="text-left">&nbsp;Confirm your new 4-digit pin <span class="required">*</span></label>
+          <input type="password" name="confirm_pin" ng-model="user.confirm_pin" ng-minlength="4" ng-maxlength="4" required ng-model-options="{ updateOn: 'blur' }" match-password="pin">
+          <div class="help-block" ng-messages="resetForm02.confirm_pin.$error" ng-show="submitted">
+            <p ng-message="passwordMatch">Pins don't match</p>
+            <p ng-message="required">Pin is required</p>
+            <p ng-message="maxlength">Pin should be 4 digits</p>
+            <p ng-message="minlength">Pin should be 4 digits</p>
+          </div>
+        </div>
+        <!-- SUBMIT BUTTON -->
+        <md-button type="submit" class="yellow wide" aria-label="Submit">
+          <span ng-hide="resetting">Submit</span> <span ng-show="resetting">Submitting...</span>
+        </md-button>
+        <br><span class="loader" ng-show="resetting || resending_code"><img src="assets/img/loader.gif" alt=""></span>
+        <span class="spacer"></span><span class="spacer"></span>
+        <span class="text-center cursor-pointer">
+          <span ng-click="resendResetCode()"><i class="material-icons md-18">repeat</i> Resend verification code?</span> &nbsp;&nbsp;
+          <!-- <span ng-click="resetRegForm()"><i class="material-icons md-18">replay</i> Cancel and Restart</span> -->
+        </span>
+      </form>
+
+    </div>
+  </div>
+  <div class="fade05 font12" ng-include="'/templates/footer-user.html'"></div>
+</div>

@@ -1,0 +1,73 @@
+<md-sidenav class="md-sidenav-right md-whiteframe-4dp navbar" md-component-id="mobileMenu" flex>
+  <md-content layout-padding="">
+    <md-button class="md-icon-button" aria-label="Close dialog" ng-click="close()">
+      <i class="material-icons">close</i>
+    </md-button>
+
+    <!-- HOMEPAGE -->
+
+    <ul layout="column" layout-align="start start" ng-show="!user_token || (user_token && reqHome)" ng-click="close()">
+      <li flex>
+        <a href="#overview" target="_self" class="anchor" title="Overview">OVERVIEW</a>
+      </li>
+      <li>
+        <a href="#howitworks" target="_self" class="anchor" title="How it works">HOW IT WORKS</a>
+      </li>
+      <li>
+        <a href="#features" target="_self" class="anchor" title="Features and Pricing">FEATURES &amp; PRICING</a>
+      </li>
+      <li>
+        <a href="#partnership" target="_self" class="anchor" title="Partnership">PARTNERSHIP</a>
+      </li>
+      <li ng-show="!user_token">
+        <md-button class="yellow normal" href="#!/user" target="_self">Login</md-button>&nbsp;&nbsp;&nbsp;
+        <md-button class="purple normal" href="#!/user/register" title="Register to Get Started" target="_self">Register</md-button>
+      </li>
+      <span class="spacer"></span><span class="spacer"></span>
+      <li ng-show="user_token" class="condensed transform-uppercase">
+        <a class="fc-subtitle" href="#!/dashboard">Dashboard</a>
+        <a class="fc-subtitle" href="#!/profile">My profile</a>
+        <a class="fc-subtitle" target="_self" ng-click="showDialog('users/dialogs/refer-friend.html')">Refer a friend</a>
+        <a href="" class="fc-red" target="_self" ng-click="logout()"><i class="material-icons md-18">power_settings_new</i>&nbsp;Logout</a>
+      </li>
+    </ul>
+
+    <!-- INNER PAGES -->
+
+    <ul class="transform-uppercase" layout="column" layout-align="start start" ng-show="user_token && !reqHome" ng-click="close()">
+      <li ng-show="user_token && !reqHome">
+        <a href="#!/dashboard" target="_self" title="Dashboard">Dashboard</a>
+      </li>
+      <li ng-show="user_token && !reqHome">
+        <a href="#!/profile/sets" target="_self" title="My Sets">My Sets</a>
+      </li>
+      <li ng-show="user_token && !reqHome">
+        <a href="#!/profile" target="_self" title="My Profile">My Profile</a>
+      </li>
+      <li ng-show="user_token && !reqHome">
+        <a target="_self" title="Topup e-wallet" ng-click="showDialog('templates/dialogs/ewallet-topup.html')">Top up your e-wallet</a>
+      </li>
+      <li ng-show="user_token && !reqHome">
+        <a href="" target="_self" title="E-Wallet" ng-click="showDialog('users/dialogs/refer-friend.html')">Refer a friend</a>
+      </li>
+      <li class="transform-none condensed loggedin-user font18 fc-subtitle info" layout="column" ng-show="user_token">
+        <span class="menu-item points" flex>
+          <i class="material-icons md-24">card_giftcard</i>&nbsp;<span ng-hide="updating_numbers">{{ user_points }}</span>&nbsp;<span class="loader" ng-show="updating_numbers">Updating...</span><span class="font12">Points</span>
+        </span>
+      </li>
+      <li class="transform-none condensed loggedin-user font18 fc-subtitle info" layout="column" ng-show="user_token">
+        <span class="menu-item wallet" flex>
+          <span>
+            <i class="material-icons md-24">account_balance_wallet</i>&nbsp;{{ user_currency }}.
+            <span ng-hide="updating || loading_profile">{{ user_wallet }}</span>
+            <span class="loader" ng-show="updating || loading_profile"><img src="assets/img/loader.gif" alt=""></span>
+          </span>
+        </span>
+      </li>
+      <li ng-show="user_token && !reqHome" class="condensed">
+        <a href="" class="fc-red" target="_self" ng-click="logout()"><i class="material-icons md-18">power_settings_new</i>&nbsp;Logout</a>
+      </li>
+    </ul>
+
+  </md-content>
+</md-sidenav>

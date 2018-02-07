@@ -1,0 +1,128 @@
+<div  class="content landing" ng-controller="homeController">
+
+  <div class="section overview" id="overview" layout="column">
+    <span class="backdrop" layout="column" layout-align="center top">
+      <span flex="90" layout="row">
+        <div class="panel panel-left" flex>
+          <h1 class="normal">Making revision - for exams, tests and life situations - simple, exciting and accessible</h1>
+          <md-button href="#!/profile" class="mega yellow">GET STARTED</md-button>
+          <!--<ul class="font18 semibold">
+             <li>Kenyan 8-4-4 Curriculum</li>
+               <li>GCSE/IGCSE Curriculum</li>
+               <li>IB Curriculum</li>
+             <li>Professional qualifications</li>
+             <li>Life skills</li>
+         </ul>-->
+          <span class="spacer"></span>
+          <span class="font18"> — or get the mobile app — </span>
+          <span class="spacer"></span> <span class="spacer"></span>
+          <span class=""><a href="https://play.google.com/store/apps/details?id=com.revisionwise&hl=en" target="_blank"><img src="./assets/img/android-app.png" alt="Download the Android app" height="50"></a></span>
+          <!--&nbsp;&nbsp;&nbsp;
+          <span><a href="#" target="_blank"><img src="./assets/img/ios-app.png" alt="Download the iOS app" height="50"></a>-->
+        </div>
+        <div class="panel panel-right" flex></div>
+      </span>
+    </span>
+  </div>
+
+  <div class="section howitworks" id="howitworks" layout="row" layout-xs="column" layout-sm="column" layout-align="center top">
+    <div class="panel panel-left" flex>
+      <span><img src="./assets/img/multiplatform.jpg" width="100%" ></span>
+    </div>
+    <div class="panel panel-right" layout-align="center top" flex>
+      <span flex="100" layout-align="center top">
+        <h2 class="text-left">Learning that sticks!</h2>
+        <ul class="font18 semibold">
+          <li>RevisionWise helps you learn and remember what really matters. Learn and revise from a wide variety of topics with ease and at your own pace.</li>
+          <li>Save your progress and pick up where you left off later.</li>
+          <li>Access a wide variety of content easily across devices</li>
+          <li>Get pointers to help you with challenging subjects or topics</li>
+          <li>Earn points for activity</li>
+        </ul>
+        <span class="spacer"></span>
+        <span class="text-left full-width" flex="100">
+          <md-button class="mega yellow" ng-click="showDialog('templates/dialogs/demo-video.html')">WATCH DEMO</md-button>
+        </span>
+      </span>
+    </div>
+  </div>
+
+  <div class="section features" id="features" layout="column" layout-xs="column" layout-sm="column" layout-align="center top">
+    <h2 class=" text-center full-width">FEATURES &amp; PRICING</h2>
+
+    <div class="text-center" layout="row" layout-xs="column" layout-align="center top">
+      <!-- Left panel -->
+      <div class="feature-wrapper border-radius-x4" layout-align="end start" layout-align-sm="center start">
+
+        <div class="panel-sm features free text-left border-radius-x4" flex>
+          <h2 class="text-center hidden" >FREE</h2>
+          <ul class="font18 semibold">
+            <li>Free sets with revision questions and notes on a variety of topics</li>
+            <li>A web revision app that is desktop, tablet and mobile-friendly</li>
+            <li>Access to mobile apps (smart phone &amp; tablet)</li>
+            <li>Earn points (and awards) for continued revision</li>
+            <li class="fade04">Access to Premium revision sets</li>
+            <li class="fade04">Premium sets from ONLY KES 2.50 per set</li>
+            <li class="fade04">Top up your account via M-Pesa</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right panel -->
+      <div class="feature-wrapper border-radius-x4" layout-align="start start" layout-align-sm="center start">
+        <div class="panel-sm features premium text-left border-radius-x4" flex>
+          <h2 class=" text-center hidden">PREMIUM</h2>
+          <ul class="font18 semibold">
+            <li>Free sets with revision questions and notes on a variety of topics</li>
+            <li>A web revision app that is desktop, tablet and mobile-friendly</li>
+            <li>Access to mobile apps (smart phone &amp; tablet)</li>
+            <li>Earn points (and awards) for continued revision</li>
+            <li>Access to premium revision sets</li>
+            <li>Premium sets from ONLY KES 2.50 per set</li>
+            <li>Top up your account via M-Pesa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <span class="spacer"></span>
+    <div class="text-center" layout="row" layout-align="center start">
+      <md-button class="mega purple md-raised" aria-label="Top up E-wallet" ng-click="showEwalletTopup($event)">Top up E-wallet</md-button>
+    </div>
+    <span class="spacer60"></span>
+  </div>
+
+  <div class="section partnership fc-title" id="partnership" layout="row" layout-xs="column" layout-sm="column" layout-align="center start">
+    <div class="panel panel-left" flex>
+      <h2 class="">PARTNER WITH US</h2>
+      <span class="font16">
+        <p><strong>Our Platform. Your Content.</strong></p>
+        <p>
+          Are you already in the content space and are looking to increase your outreach? If so then we would make great partners.
+          We would provide the platform, with a ready made audience for you to put up your test based content.
+        </p>
+        <p>
+          Drop us a line now and let us work together to help our users revise better from anywhere at any time.
+        </p>
+      </span>
+      <span class="spacer"></span>
+      <md-button href="mailto:hello@revisionwise.com" class="wide purple text-yellow">WRITE TO US</md-button>
+    </div>
+    <div class="panel panel-right" flex>
+      <h2 class="">BECOME AN AFFLIATE</h2>
+      <span class="font16">
+        <p><strong>Earn more by recommending our platform.</strong></p>
+        <p>
+          Are you a loyal user of our platform? Do you find our platform not only user friendly but also relevant and helpful? Then why not earn some extra revenue by recommending our platform to others.
+          We would love to show our appreciation for your referrals by rewarding you with a percentage of the revenues.
+        </p>
+        <p>
+          Apply now to become an affiliate.
+        </p>
+      </span>
+      <span class="spacer"></span>
+      <md-button href="mailto:hello@revisionwise.com" class="wide purple text-yellow">APPLY NOW</md-button>
+    </div>
+  </div>
+
+</div>

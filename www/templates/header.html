@@ -1,0 +1,96 @@
+<md-content class="content header-fixed-top" ng-controller="authController" layout-xs="row">
+  <nav layout-xs class="navbar-brand" flex>
+    <a href="#!/" id="home" target="_self" title="RevisionWise - Home">
+      <img ng-src="assets/img/rw-logo_alt.png" height="42" alt="RevisionWise" />
+    </a>
+  </nav>
+
+  <nav class="navbar fc-body condensed desktop-menu" layout-align="end center" flex>
+    <ul flex layout="row">
+
+      <!-- Standard homepage menu -->
+      <li ng-show="!user_token || (user_token && reqHome)">
+        <a href="#overview" target="_self" class="anchor" title="Overview">OVERVIEW</a>
+      </li>
+      <li ng-show="!user_token || (user_token && reqHome)">
+        <a href="#howitworks" target="_self" class="anchor" title="How it works">HOW IT WORKS</a>
+      </li>
+      <li ng-show="!user_token || (user_token && reqHome)">
+        <a href="#features" target="_self" class="anchor" title="Features and Pricing">FEATURES &amp; PRICING</a>
+      </li>
+      <li ng-show="!user_token || (user_token && reqHome)">
+        <a href="#partnership" target="_self" class="anchor" title="Partnership">PARTNERSHIP</a>
+      </li>
+
+      <!-- Standard dashboard menu -->
+      <li ng-show="user_token && !reqHome">
+        <a href="#!/" target="_self" class="" title="Home"><i class="material-icons md-24">home</i></a>
+      </li>
+      <li ng-show="user_token && !reqHome">
+        <a href="#!/dashboard" target="_self" class="" title="Dashboard">Dashboard</a>
+      </li>
+      <li ng-show="user_token && !reqHome">
+        <a href="#!/profile/sets" target="_self" class="" title="My Sets">My Sets</a>
+      </li>
+      <li ng-show="user_token && !reqHome">
+        <a href="#!/profile" target="_self" class="" title="My Profile">My Profile</a>
+      </li>
+
+      <!-- Buttons shown before login -->
+      <li ng-show="!user_token">
+         <md-button class="yellow normal" href="#!/user" target="_self">Login</md-button>
+      </li>
+      <li ng-show="!user_token">
+         <md-button class="purple normal" href="#!/user/register" title="Register to Get Started" target="_self">Register</md-button>
+      </li>
+
+
+      <!-- Standard user menu when logged in -->
+      <li ng-show="user_token && user_status === true" class="loggedin-user font18 fc-subtitle"> <!-- show user menu when user is logged in -->
+        <span class="menu-item points">
+          <i class="material-icons md-24">card_giftcard</i>&nbsp;{{ user_points }}&nbsp;<span class="font12">Points</span>
+        </span>
+        <span class="menu-item wallet">
+          <span>
+            <i class="material-icons md-24">account_balance_wallet</i>&nbsp;{{ user_currency }}.
+            <span ng-hide="updating || loading_profile">{{ user_wallet }}</span>
+            <span class="loader" ng-show="updating || loading_profile"><img src="assets/img/loader.gif" alt=""></span>
+          </span>
+        </span>
+        <span class="menu-item name" ng-hide="logging_out">
+          <md-menu md-position-mode="target-right target">
+            <md-button ng-click="$mdOpenMenu()" class="md-icon-button" aria-label="Open sample menu">
+              <span md-menu-origin class="transform-initial font18"><i class="material-icons md-24">face</i>&nbsp;{{ user_fname }} </span>
+            </md-button>
+            <md-menu-content width="4">
+              <md-menu-item class="cursor-pointer" ng-click="$mdCloseMenu()" md-autofocus="false">
+                <a href="#!/dashboard">Dashboard</a>
+              </md-menu-item>
+              <md-menu-item class="cursor-pointer" ng-click="showDialog('templates/dialogs/ewallet-topup.html')">
+                <a target="_self">Top up your e-wallet</a>
+              </md-menu-item>
+              <md-menu-item class="cursor-pointer" ng-click="$mdCloseMenu()">
+                <a href="#!/profile">My profile</a>
+              </md-menu-item>
+              <md-menu-item class="cursor-pointer" ng-click="showDialog('users/dialogs/refer-friend.html')">
+                <a target="_self">Refer a friend</a>
+              </md-menu-item>
+              <md-menu-divider></md-menu-divider>
+              <md-menu-item class="cursor-pointer" ng-click="logout()">
+                <a target="_self" class="fc-red"><i class="material-icons md-20">power_settings_new</i>&nbsp;Logout</a>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+        </span>
+        <span class="loader" ng-show="logging_out"><img src="assets/img/loader.gif" alt=""></span>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Mobile navigation trigger -->
+  <nav class="mobile-menu" layout="column" flex>
+    <md-button class="md-icon-button no-border-radius" md-direction="right" aria-label="mobile menu" ng-click="toggleMobileMenu()">
+      <i class="material-icons md-48">menu</i>
+    </md-button>
+  </nav>
+</md-content>

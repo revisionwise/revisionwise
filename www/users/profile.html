@@ -1,0 +1,15 @@
+<div class="content main-content loggedin user-profile text-center">
+  <div class="section section-top landing fc-white" layout="column" layout-align="center center">
+    <i class="material-icons md-56" title="{{ user_fname }} {{ user_lname }}">verified_user</i>
+    <h1 class="condensed fc-white fade-in-fwd">{{ user_fname }} {{ user_lname }}</h1>
+    <div layout="row" layout-xs="column" layout-sm="column">
+      <span class="loader center-align" ng-show="loading_profile"><img src="assets/img/loader.gif" alt=""></span>
+      <span ng-show="user_email" class="fade-in-fwd"><i class="material-icons md-22 fc-yellow">mail</i> {{ user_email }}</span>&nbsp;&nbsp;&nbsp;
+      <span ng-show="user_phone" class="fade-in-fwd"><i class="material-icons md-20 fc-yellow">call</i> {{ user_phone }}</span>&nbsp;&nbsp;&nbsp;
+    </div>
+    <span class="spacer40"></span>
+    <div class="condensed font12 transform-uppercase" layout="row">
+      <a href="#!/profile/update" class="fc-subtitle" target="_self" title="Edit profile"><i class="material-icons md-16">adjust</i> Edit profile </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,127 @@
+<div class="content main-content loggedin text-center content-levels" layout="column" layout-align="start center" ng-cloak>
+
+    <!-- Levels -->
+    <div ng-show="activeLevelID === 0" layout="column" layout-align="start center" class="full-width-960 pos-relative">
+      <div class="section section-top scale-in-ver-top" layout="column" layout-align="start center">
+        <h1 class="condensed font28 text-center">
+          <span class="fc-subtitle">{{ activeContentType }}</span><i class="material-icons md-32 fc-subtitle vertical-align-middle">keyboard_arrow_right</i>LEVELS
+        </h1>
+        <div class="sub-title  semibold">Available levels under {{ activeContentType }}, choose one to proceed...</div>
+        <span class="spacer"></span><span class="spacer"></span>
+      </div>
+      <span class="loader center-align" ng-show="loading_content"><img src="assets/img/loader.gif" alt=""></span>
+      <div class="section slide-in-right" ng-show="activeLevelID === 0 && loading_content === false">
+        <div class="listing panel border-radius-x4 text-left">
+          <ul class="no-list-style">
+            <li class="cursor-pointer"
+                ng-repeat="(key, value) in levels | orderBy: value.priority"
+                ng-click="getSubjects(value.id, value.name)"
+                layout="row">
+              <span class="condensed transform-initial font20" flex="100">{{ value.name }}</span>
+              <span class="align-right"><i class="material-icons md-24">keyboard_arrow_right</i></span>
+            </li>
+          </ul>
+        </div>
+        <span class="text-left full-width">
+          <md-button class="btn-white no-margin font16" href="#!/dashboard">
+            <i class="material-icons vertical-align-middle md-20">arrow_back</i>&nbsp;BACK
+          </md-button>
+        </span>
+      </div>
+    </div>
+
+    <!-- Subjects -->
+    <div ng-show="activeLevelID !== 0 && activeSubjectID === 0" layout="column" layout-align="start center" class="full-width-960 pos-relative">
+      <div class="section section-top scale-in-ver-top" layout="column" layout-align="start center">
+        <h1 class="condensed font28">
+          <span class="fc-subtitle">{{ activeLevel }}</span><i class="material-icons md-32 fc-subtitle vertical-align-middle">keyboard_arrow_right</i>SUBJECTS
+        </h1>
+        <div class="sub-title  semibold">Available subjects under {{ activeContentType }} > {{ activeLevel }}, choose one to proceed...</div>
+        <span class="spacer"></span><span class="spacer"></span>
+      </div>
+      <span class="loader center-align" ng-show="loading_content"><img src="assets/img/loader.gif" alt=""></span>
+      <div class="section slide-in-right" ng-show="activeLevelID !== 0 && activeSubjectID === 0 && loading_content === false" ng-cloak>
+        <div class="listing panel border-radius-x4 text-left">
+          <ul class="no-list-style">
+            <li class="cursor-pointer"
+                ng-repeat="(key, value) in subjects | orderBy: value.priority"
+                ng-click="getSets(value.id, value.name)"
+                layout="row">
+              <span class="condensed transform-initial font20" flex="100">{{ value.name }}</span>
+              <span class="align-right"><i class="material-icons md-24">keyboard_arrow_right</i></span>
+            </li>
+          </ul>
+        </div>
+        <span class="text-left full-width">
+          <md-button class="btn-white no-margin font16" ng-click="backToLevels()">
+            <i class="material-icons vertical-align-middle md-20">arrow_back</i>&nbsp;BACK
+          </md-button>
+        </span>
+      </div>
+    </div>
+
+    <!-- Sets -->
+    <div ng-show="activeLevelID !== 0 && activeSubjectID !== 0" layout="column" layout-align="start center" class="full-width-960">
+      <div class="section section-top scale-in-ver-top" layout="column" layout-align="start center">
+        <h1 class="condensed font28 ">
+          <span class="fc-subtitle">{{ activeSubject }}</span><i class="material-icons md-32 fc-subtitle vertical-align-middle">keyboard_arrow_right</i>SETS
+        </h1>
+        <div class="sub-title semibold">Available sets under {{ activeContentType }} > {{ activeLevel }} > {{ activeSubject }}, choose one to proceed...</div>
+        <span class="spacer"></span><span class="spacer"></span>
+      </div>
+      <span class="loader center-align" ng-show="loading_content"><img src="assets/img/loader.gif" alt=""></span>
+      <div class="section slide-in-right" ng-show="activeLevelID !== 0 && activeSubjectID !== 0 && loading_content === false" ng-cloak>
+        <div
+          class="listing panel border-radius-x4 text-left"
+          ng-repeat="(key, value) in sets | orderBy: value.priority"
+          ng-hide="value.questions_count === 0"
+          layout="column">
+          <div class="condensed transform-initial font20 full-width set-title">{{ value.name }}</div>
+          <div class="set-meta condensed" layout="row" layout-align="start start">
+            <span class="premium" ng-show="value.premium === true">PREMIUM</span>
+            <span class="free" ng-show="value.premium === false">FREE</span>
+            <span class="price">{{ value.currency }}. {{ value.price }}</span>
+            <span class="questions">{{ value.questions_count }}&nbsp;Questions</span>
+            <span class="provider-meta">Provided by {{ value.content_provider.name }}</span>
+            <span class="user-meta">
+              <span class="progress" ng-show="value.user_set.progress > 0">Your progress: {{ value.user_set.progress }}/{{ value.questions_count }}</span>
+              <span class="days" ng-show="value.user_set.days_to_expiry > 0">Access: {{ value.user_set.days_to_expiry }} Days</span>
+            </span>
+            <span class="restart text-right">
+              <span
+                ng-show="value.user_set.marked === true || (value.user_set.marked === false && value.user_set.progress > 0)"
+                class="cursor-pointer"
+                ng-click="verifySetAccess(value.id, value.name, value.currency, value.price, value.user_set.is_expired, 'restart')">
+                RESTART&nbsp;<i class="material-icons md-18">replay</i>
+              </span>
+            </span>
+            <span
+              ng-show="value.user_set.marked === false && value.user_set.progress > 0"
+              class="continue fc-teal cursor-pointer text-right"
+              ng-click="verifySetAccess(value.id, value.name, value.currency, value.price, value.user_set.is_expired, 'continue')">
+              CONTINUE&nbsp;<i class="material-icons md-18">arrow_forward</i>
+            </span>
+            <span
+              ng-show="!value.user_set || (value.user_set.progress === 0 || value.user_set.progress === null)"
+              class="start fc-green cursor-pointer text-right fade-in-top"
+              ng-click="verifySetAccess(value.id, value.name, value.currency, value.price, value.user_set.is_expired, 'start')">
+              START&nbsp;<i class="material-icons md-18">play_arrow</i>
+            </span>
+            <span
+              ng-show="value.user_set.marked === true"
+              class="review fc-yellow cursor-pointer text-right fade-in-top"
+              ng-click="verifySetAccess(value.id, value.name, value.currency, value.price, value.user_set.is_expired, 'review', $event)">
+              REVIEW&nbsp;<i class="material-icons md-18">rate_review</i>
+            </span>
+          </div>
+        </div>
+        <span class="text-left full-width">
+          <md-button class="btn-white no-margin font16" ng-click="backToSubjects()">
+            <i class="material-icons vertical-align-middle md-20">arrow_back</i>&nbsp;BACK
+          </md-button>
+        </span>
+      </div>
+    </div>
+
+    <span class="spacer60"></span>
+</div>

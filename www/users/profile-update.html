@@ -1,0 +1,56 @@
+<div class="content main-content loggedin profile-update text-center">
+  <div class="panel text-center border-radius-x2 fade-in-top">
+    <div class="form-wrapper">
+      <h1 class="condensed fc-subtitle" flex>PROFILE UPDATE</h1>
+      <div class="form-error text-center" ng-show="errorMsg">
+        <p><i class="material-icons md-18">report_problem</i> &nbsp;{{ errorMsg }}</p>
+      </div>
+
+      <!-- ****** PROFILE UPDATE FORM ****** -->
+
+      <form name="profileForm" novalidate ng-submit="updateProfile(user)">
+
+        <!-- firstName -->
+        <div class="input-wrapper">
+          <label class="text-left">&nbsp;First name </label>
+          <input type="text" name="firstName" ng-model="user.firstName" ng-init="user.firstName = user_fname">
+        </div>
+        <!-- lastName -->
+        <div class="input-wrapper">
+          <label class="text-left">&nbsp;Last name </label>
+          <input type="text" name="lastName" ng-model="user.lastName" ng-init="user.lastName = user_lname">
+        </div>
+        <!-- EMAIL -->
+        <div class="input-wrapper" ng-class="{ 'input-error' : submitted && profileForm.email.$invalid }">
+          <label class="text-left">&nbsp;Enter email address</label>
+          <input type="email" ng-class="{ 'input-error' : submitted && profileForm.email.$invalid }" name="email" ng-model="user.email" ng-init="user.email = user_email" placeholder="e.g. john@email.com" ng-model-options="{ updateOn: 'blur' }">
+          <div class="help-block" ng-messages="profileForm.email.$error" ng-show="submitted" ng-class="{ 'input-error' : submitted && profileForm.email.$invalid }">
+            <p ng-message="email">Email address format is invalid</p>
+          </div>
+        </div>
+
+        <!-- YOB -->
+        <div class="input-wrapper" ng-class="{ 'input-error' : (submitted && profileForm.yearOfBirth.$invalid) || (submitted && profileForm.yearOfBirth.$invalid) }">
+          <label class="text-left">&nbsp;Year of birth </label>
+          <input type="number" name="yearOfBirth" ng-model="user.yearOfBirth" ng-init="user.yearOfBirth = user_yob" ng-minlength="4" ng-maxlength="4" ng-model-options="{ updateOn: 'blur' }" placeholder="e.g. 1990">
+          <div class="help-block" ng-messages="profileForm.yearOfBirth.$error" ng-show="submitted">
+            <p ng-message="maxlength">Year of birth should have 4 digits</p>
+            <p ng-message="minlength">Year of birth should have 4 digits</p>
+          </div>
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <md-button type="submit" class="yellow wide" aria-label="Submit">
+          <span ng-hide="updating_info">Update profile</span> <span ng-show="updating_info">Updating...</span>
+        </md-button>
+        <br><span class="loader" ng-show="updating_info"><img src="assets/img/loader.gif" alt=""></span>
+        <span class="spacer"></span>
+        <span class="spacer"></span>
+        <span class="text-center"><nobr><a href="#!/profile"><i class="material-icons md-18">arrow_back</i>&nbsp;Back</a></nobr></span>&nbsp;&nbsp;
+        <span class="text-center"><nobr><a href="#!/profile/update/phone"><i class="material-icons md-18">vpn_key</i>&nbsp;Update phone?</a></nobr></span> &nbsp;
+        <span class="text-center"><nobr><a href="#!/profile/update/pin"></nobr><i class="material-icons md-18">vpn_key</i>&nbsp;Update pin?</a></nobr></span>
+      </form>
+
+    </div>
+  </div>
+</div>

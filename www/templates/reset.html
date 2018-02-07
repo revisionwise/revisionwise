@@ -1,0 +1,41 @@
+<div class="content auth reset text-center">
+  <img ng-src="assets/img/rw-logo_alt.png" height="42" alt="RevisionWise" class="app-logo" />
+  <div class="register panel text-center border-radius-x2 fade-in-top">
+    <div class="form-wrapper">
+      <h1 class="condensed fc-subtitle" flex>RESET PIN</h1>
+      <div class="form-error text-center" ng-show="errorMsg">
+        <p><i class="material-icons md-18">report_problem</i> &nbsp;{{ errorMsg }}</p>
+      </div>
+      <!-- ****** RESET PIN STEP 1 ****** -->
+
+      <form name="resetForm01" novalidate ng-submit="resetPinStep1(user)">
+        <!-- PHONE NO -->
+        <div class="input-wrapper dual">
+          <label class="text-left">&nbsp;Enter phone number (with country code) <span class="required">*</span></label>
+          <input type="number" class="dual-sm" ng-class="{ 'input-error' : submitted && resetForm01.code.$invalid }" name="code" ng-init="user.code = 254" ng-model="user.code" ng-minlength="3" ng-maxlength="3" required ng-model-options="{ updateOn: 'blur' }">
+          <input type="number" class="dual-lg" ng-class="{ 'input-error' : submitted && resetForm01.mobile.$invalid }" name="mobile" ng-model="user.mobile" ng-minlength="9" ng-maxlength="12" required placeholder="e.g. 0723xxxxxx" ng-model-options="{ updateOn: 'blur' }">
+          <div class="help-block" ng-messages="resetForm01.mobile.$error" ng-show="submitted" ng-class="{ 'input-error' : (submitted && resetForm01.code.$invalid) || (submitted && resetForm01.mobile.$invalid) }">
+            <p ng-message="required">Phone number is required</p>
+            <p ng-message="maxlength">Phone number should be 12 digits or less</p>
+            <p ng-message="minlength">Phone number should be 9 digits or more</p>
+          </div>
+          <div class="help-block" ng-messages="resetForm01.code.$error" ng-show="submitted" ng-class="{ 'input-error' : (submitted && resetForm01.code.$invalid) || (submitted && resetForm01.mobile.$invalid) }">
+            <p ng-message="required">Country code is required</p>
+            <p ng-message="maxlength">Country code should be 3 digits</p>
+            <p ng-message="minlength">Country code should be 3 digits</p>
+          </div>
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <md-button type="submit" class="yellow wide" aria-label="Submit" >
+          <span ng-hide="resetting">REQUEST VERIFICATION CODE</span> <span ng-show="resetting">REQUESTING...</span>
+        </md-button>
+        <br><span class="loader" ng-show="resetting"><img src="assets/img/loader.gif" alt=""></span>
+        <span class="spacer"></span><span class="spacer"></span>
+        <span class="text-center"><a href="#!/user/register">Register new account?</a></span>
+      </form>
+
+    </div>
+  </div>
+  <div class="fade05 font12" ng-include="'/templates/footer-user.html'"></div>
+</div>

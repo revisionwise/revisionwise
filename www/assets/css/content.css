@@ -1,0 +1,77 @@
+body main .main-content.content-levels .section {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.content-levels .section-top h1 {
+  margin-bottom: 10px;
+}
+.content-levels .panel {
+  background-color: #ffffff;
+  margin: 0 auto 15px;
+  position: relative;
+  padding: 25px;
+  border: solid 1px #d1d1d2;
+}
+.content-levels .panel ul li {
+  border-bottom: solid 1px #d1d1d2;
+  padding-bottom: 15px;
+}
+.content-levels .panel ul li:hover,
+.content-levels .panel ul li:focus {
+  color: #f2b632;
+}
+.content-levels .panel ul li:before {
+  background: none !important;
+}
+.panel .set-title {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #d1d1d2;
+}
+.panel .set-meta > span {
+  width: 100%;
+  padding: 0 2px 1px;
+}
+.panel .set-meta .free,
+.panel .set-meta .premium {
+  background: #ffffff;
+  border: 2px solid #f2b632;
+  text-align: center;
+  max-width: 58px;
+  min-width: 58px;
+  margin-right: 15px;
+  border-radius: 2px;
+}
+.panel .set-meta .free {
+  border: 2px solid #aed135;
+  background: #aed135;
+}
+.panel .set-meta .review,
+.panel .set-meta .price,
+.panel .set-meta .questions,
+.panel .set-meta .start,
+.panel .set-meta .continue {
+  max-width: 90px;
+}
+
+.panel .set-meta .user-meta,
+.panel .set-meta .provider-meta {
+  position: absolute;
+  bottom: 5px;
+  right: 25px;
+  width: auto;
+  color: #777;
+  font-size: 0.9em;
+}
+
+.panel .set-meta .user-meta .days {
+  padding-left: 20px;
+}
+
+.panel .set-meta .provider-meta {
+  left: 25px;
+}
+
+.panel .layout-row {
+  margin-bottom: 5px
+}

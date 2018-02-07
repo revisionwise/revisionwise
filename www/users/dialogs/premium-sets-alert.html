@@ -1,0 +1,25 @@
+<md-dialog aria-label="Premium set prompt" ng-controller="userDialogController">
+  <div ng-cloak class="pos-relative">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 class="condensed"><i class="material-icons md-28">notifications_active</i>&nbsp; PREMIUM SET ALERT</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close dialog" ng-click="cancel('clear_active_set')">
+          <i class="material-icons">close</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content fc-body">
+        <span class="font18">Please note that your e-wallet will be deducted {{ currency }}.{{ price }}.</span>
+        <span class="spacer40"></span>
+        <div layout="row">
+          <span>
+            <md-button class="md-button yellow wide" ng-click="proceedToPremiumSet(); cancel();" aria-label="Profile update">CONTINUE</md-button>
+          </span>
+        </div>
+      </div>
+    </md-dialog-content>
+  </div>
+</md-dialog>

@@ -1,0 +1,67 @@
+body.auth .panel h1,
+body .content.user-profile .panel > div h2 {
+  line-height: 100%;
+  margin: 0 0 30px;
+}
+.content.user-profile .section {
+  min-height: 400px;
+  padding-bottom: 50px;
+}
+.content.user-profile .section.user-data {
+  padding-top: 60px;
+}
+body .content.user-profile .panel > div {
+  padding: 30px;
+}
+.content.user-profile .section.landing {
+  background-color: #252839;
+}
+
+/*User Menu*/
+.loggedin-user {
+  border-left: solid 1px #eaeaea;
+  padding-left: 10px;
+}
+.loggedin-user > span {
+  margin-left: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.loggedin-user > span > i {
+  vertical-align: middle
+}
+.loggedin-user > span .md-button.md-icon-button {
+  border-radius: 0;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+.loggedin-user > span .md-button.md-icon-button:hover,
+.loggedin-user > span .md-button.md-icon-button:focus,
+.loggedin-user > span .md-open .md-button.md-icon-button {
+  color: #dba42c;
+}
+.loggedin-user .loader {
+  display: inline-block;
+  height: 35px;
+  padding-top: 5px;
+}
+.loggedin-user .loader img {
+  margin-bottom: -8px
+}
+
+#menu_container_0 {
+  margin-top: 60px;
+  margin-left: 5px;
+}
+#menu_container_0 md-menu-item:hover {
+  background-color: #ececec;
+}
+
+body .content.profile-update .panel {
+  margin-bottom: 80px;
+}
+md-dialog-content .blurb.panel {
+  border: none !important;
+  margin: 0 2%;
+}

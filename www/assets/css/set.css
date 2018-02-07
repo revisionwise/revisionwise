@@ -1,0 +1,119 @@
+.set h1 {
+  margin-bottom: 10px;
+}
+.set .section {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.set .section-top {
+  margin-top: 120px;
+}
+.set .section-top .loader {
+  margin-top: -20px;
+  display: inline-block;
+  vertical-align: top;
+}
+.set .fixed {
+  z-index: 1;
+  top: 0;
+  background: #eaeaea;
+  padding-bottom: 20px;
+  margin-top: 75px;
+  padding-top: 20px;
+}
+.set .fixed .progress-label {
+  margin:  0 0 5px ;
+}
+.set .panel {
+  background-color: #ffffff;
+  margin: 0 auto 15px;
+  position: relative;
+  padding: 10px 30px;
+  border: solid 1px #d1d1d2;
+}
+.set .question img {
+  margin-bottom: 5px;
+}
+.set .question .choice {
+  padding: 8px 50px 8px 8px;
+  margin: 0 10px 10px;
+  min-height: 15px;
+  overflow: hidden;
+}
+.set .question .choice input {
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  opacity: 0;
+  height: 100%;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.set .question .choice:hover,
+.set .question .choice:focus,
+.set .question .choice.correct {
+  background-color: #eaeaea;
+}
+.set .question .choice.chosen {
+  background-color: #f2b632;
+}
+.set .action-bar {
+  border-top: solid 1px #d1d1d2;
+  padding: 10px 0 0;
+}
+.set .note p {
+  line-height: 180%;
+}
+.set .note img,
+.set .question img {
+  max-width: 100%;
+}
+.set md-progress-linear {
+  margin-top: 5px;
+}
+.set md-progress-linear .md-container {
+  background-color: #ffffff;
+}
+.set md-progress-linear .md-bar {
+  background-color: #f2b632;
+}
+.set .choice .marker {
+  position: absolute;
+  right: 0;
+  width: 45px;
+  min-height: 30px;
+  border-left: 2px solid #ffffff;
+  background-color: #559a03;
+  color: #ffffff;
+  top: 0 !important;
+  text-align: center;
+  height: 100%;
+}
+.set .choice .marker i {
+  display: block;
+  vertical-align: bottom;
+}
+.set .choice .marker.wrong {
+  background-color: #f23232;
+}
+.set .question .comment-box {
+  background-color: #fffee9;
+  border: solid 1px #d6d59c;
+  margin: 10px;
+  padding: 17px;
+}
+.set .question .comment-box::before {
+  content:" ";
+  background: url(../img/speech-bubble.png) center no-repeat;
+  background-size: 25px 15px;
+  width: 25px;
+  height: 15px;
+  position: absolute;
+  top: -15px;
+  left: 20px;
+}
+.set .results {
+  margin-bottom: 10px;
+}

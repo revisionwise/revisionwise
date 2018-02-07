@@ -1,0 +1,306 @@
+/*---1180px---------------------------------------------------------------------*/
+
+@media (max-width: 1180px) {
+  body.home .panel-sm.features {
+    padding-top: 120px;
+  }
+  body.home .panel-sm.features > ul {
+    margin: 0 2%;
+    width: auto;
+  }
+  nav.navbar ul li a {
+    padding: 20px 10px;
+    font-size: 16px;
+  }
+  body.home  .panel-sm.features h2.hidden{
+    display: block !important;
+  }
+  body.home .panel-sm.features,
+  body.home .panel-sm.features.premium {
+    background: none;
+    max-width: auto;
+    min-width: 0px;
+    padding: 0 10px 20px!important;
+    min-height: 0;
+    margin: 0 auto;
+    border: solid 1px #d1d1d2;
+    background-color: #ffffff;
+  }
+  body.home .panel-sm.features h2 {
+    color: #f2b632;
+  }
+  .feature-wrapper {
+    margin: 20px 0 0;
+  }
+  body.home .panel-sm.features.premium {
+    margin-bottom: 30px;
+    border-left: none;
+  }
+}
+
+/*---1140px---------------------------------------------------------------------*/
+
+@media (max-width: 1140px) {
+  /*-- headings --*/
+  h2 {
+    font-size: 28px;
+  }
+
+  body.home .panel-sm.features,
+  body.home .panel-sm.features.premium {
+    font-size: 10px !important;
+  }
+}
+
+/*---1065px---------------------------------------------------------------------*/
+
+@media (max-width: 1065px) {
+  /*hide main menu, show mobile menu*/
+  .desktop-menu {
+    display: none;
+  }
+  .mobile-menu {
+    display: inline-block !important;
+  }
+  .mobile-menu > .md-button,
+  .mobile-menu > .md-button:hover,
+  .mobile-menu > .md-button:active,
+  .mobile-menu > .md-button:focus{
+    padding: 0;
+    background: transparent;
+    float: right
+  }
+}
+
+/*---960px---------------------------------------------------------------------*/
+
+@media (max-width: 960px) {
+  body.home .section#overview {
+    background-size: cover;
+  }
+  body.home .section.overview .panel.panel-left {
+    max-width: 70%;
+    text-align: center;
+    margin: 0 auto !important;
+    color: #ffffff;
+  }
+  body.home .section.overview .backdrop {
+    padding: 150px 0;
+    background: rgba(0,0,0,0.4);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+  body.home .section.overview .panel .indent {
+    margin: 0 auto;
+  }
+  .section.overview .panel.panel-left h1,
+  .section.overview .panel ul li {
+    color: #fff
+  }
+  body.home .panel-sm.features {
+    max-width: 100%;
+    padding: 0 20px 0 0;
+  }
+  body.home .panel-sm.features.premium {
+    border-left: none;
+  }
+  .section.partnership .panel {
+    text-align: center;
+  }
+  .section.partnership .panel.panel-right {
+    padding-top: 0;
+    margin-top: 0;
+  }
+  .section.partnership .panel.panel-right::before {
+    content: ".";
+    color: transparent;
+    border-top: dashed 1px #252839;
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+  }
+  footer .content {
+    max-height: none;
+  }
+}
+
+/*---599px---------------------------------------------------------------------*/
+
+@media (max-width: 599px) {
+  body.home .section.overview .panel.panel-left {
+    max-width: 90%;
+  }
+  body.home .panel-sm.features.premium {
+    border: solid 1px #d1d1d2;
+  }
+  body main .main-content.user-profile .section-top {
+    margin-bottom: 250px;
+  }
+  .howitworks .panel-right {
+    margin-top: 0;
+    border-top: dashed 1px #d1d1d2;
+  }
+  .howitworks .panel h2,
+  .howitworks .panel span.text-left {
+    text-align: center;
+  }
+  footer nav {
+    text-align: center !important;
+  }
+  footer nav.footer-right {
+    margin: 20px 0;
+  }
+  footer nav.footer-right > * {
+    display: block;
+    margin: 10px auto;
+  }
+}
+
+/*---530px---------------------------------------------------------------------*/
+
+@media (max-width: 530px) {
+  .listing .set-meta .questions {
+    display: none;
+  }
+}
+
+/*---480px---------------------------------------------------------------------*/
+
+@media (max-width: 480px) {
+  body main {
+    padding-top: 65px;
+  }
+  body.user-management,
+  body.user-management main {
+    padding-top: 0;
+    background: #fff;
+  }
+  body.user-management .app-logo {
+    margin: 40px 0 0;
+    height: 35px;
+  }
+  body .content.auth .panel {
+    margin: 0 auto;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  body .content.loggedin .panel .form-wrapper{
+    padding: 10px 30px 30px;
+  }
+  body .content.auth .panel .form-wrapper{
+    padding: 10px;
+  }
+  body.user-management .content.footer-user {
+    border-top: solid 2px #eaeaea;
+  }
+  body.user-management .content.footer-user nav > span {
+    display: block
+  }
+  body main .main-content {
+    padding-top: 20px;
+  }
+  form label {
+    font-size: 12px;
+  }
+  .md-button.mega {
+    height: 50px;
+    max-height: 50px;
+    min-width: 200px;
+  }
+  body.home .section.overview .backdrop {
+    padding: 100px 0;
+  }
+  body.home .section .panel-right {
+    margin-top: 0;
+    padding-top: 0
+  }
+  body.home .section .panel {
+    padding: 0;
+  }
+  header md-content {
+    padding: 8px 10px;
+  }
+  header md-content nav > a > img{ /* logo */
+    height: 30px;
+    margin-bottom: -20px;
+  }
+  .section.fixed h1,
+  .section-top h1 {
+    font-size: 22px;
+  }
+  .section-top .sub-title  {
+    font-size: 12px;
+  }
+
+  footer nav .email,
+  footer nav .call {
+    display: block;
+  }
+  footer nav .email {
+    margin-top: 10px;
+  }
+  .section.overview .panel.panel-left h1{
+    font-size: 24px;
+  }
+  body main .content.loggedin.profile-update {
+    width: 92%;
+    padding: 40px 4%;
+  }
+  body main .content.auth {
+    padding: 0 4%;
+    width: 92%;
+  }
+  .input-wrapper.dual input.dual-lg {
+    max-width: 75%;
+  }
+  /*   md dialogs   */
+  md-dialog-content .input-wrapper.dual input.dual-lg {
+    max-width: 70%;
+    margin-left: 2px;
+  }
+  .input-wrapper.dual input.dual-sm {
+    float: left;
+  }
+  .md-button.wide {
+    min-width: 200px;
+  }
+  .md-button.mega {
+    font-size: 18px;
+  }
+  /*   sets   */
+  .set .fixed {
+    margin-top: 45px;
+  }
+  .set h1 {
+    margin: 5px 0 10px;
+  }
+  .md-toolbar-tools {
+    padding: 30px 20px;
+  }
+
+  .panel .set-meta .user-meta,
+  .panel .set-meta .provider-meta {
+    font-size: 0.8em;
+  }
+
+  .panel .set-meta .user-meta .progress {
+    display: none;
+  }
+}
+
+
+/*---420px---------------------------------------------------------------------*/
+
+@media (max-width: 420px) {
+  .md-toolbar-tools h2 i,
+  .listing .set-meta i {
+    display: none
+  }
+  body.home .section.overview .backdrop {
+    padding: 0;
+  }
+}

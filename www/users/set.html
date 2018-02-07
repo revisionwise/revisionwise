@@ -1,0 +1,192 @@
+<div class="content main-content loggedin set" layout="column" layout-align="start center" ng-cloak>
+  <div layout="column" layout-align="start start" class="full-width-960">
+    <div class="section fixed full-width-960" layout="column" layout-align="start start">
+      <h1 class="condensed font28 text-center scale-in-ver-top">
+        {{ activeSet }}
+      </h1>
+      <div class="subtitle pos-relative" layout="row">
+        <div
+          class="font14 condensed cursor-pointer back-link scale-in-center"
+          ng-hide="questionsCount < 1"
+          ng-click="backToSets()">
+          <i class="material-icons vertical-align-middle md-18">arrow_back</i>&nbsp;BACK
+        </div>
+        <span ng-show="saving_progress" class="loading-text fade-in-fwd fc-subtitle font12 italic">&nbsp;&nbsp;&nbsp;&nbsp;Saving...</span>
+        <div
+          ng-hide="loading_content || questionsCount === 0 || activeSetDone === true"
+          class="progress-label text-right condensed" flex>
+          <span ng-hide="activeSetDone === true" class="fc-subtitle scale-in-center">PROGRESS:</span> {{ choicesCount }}/{{ questionsCount }}
+        </div>
+        <div
+          class="semibold fc-green scale-in-center semibold font12"
+          ng-show="activeSetDone === true"
+          layout="row" flex>
+          <span class="text-center condensed font16 results transform-uppercase full-width " ng-show="activeSetDone === true">
+            <i class="material-icons md-22">grade</i>&nbsp;SCORE: <span class="font16">{{ correctChoicesCount }}/{{ questionsCount }}</span>
+          </span>
+        </div>
+        <div
+          class="font14 condensed cursor-pointer back-link scale-in-center"
+          ng-show="questionsCount > 0 && activeSetDone === true"
+          ng-click="restartSet(activeSetID)">
+          <i class="material-icons vertical-align-middle md-18">replay</i>&nbsp;RESTART
+        </div>
+      </div>
+      <hr ng-show="activeSetDone === true" class="border-radius-x4 scale-in-center" />
+      <md-progress-linear
+        ng-hide="loading_content || questionsCount < 1 || activeSetDone === true"
+        md-mode="determinate"
+        class="scale-in-center"
+        value="{{ choicesCount * 100 / questionsCount }}">
+      </md-progress-linear>
+    </div>
+    <div class="section section-top">
+      <span class="loader text-center font12 full-width-960" ng-show="loading_content">
+        <span class="spacer40"></span>
+        <img src="assets/img/loader.gif" alt=""> <br>Loading...
+      </span>
+      <div ng-hide="loading_content">
+        <div class="italic font18 scale-in-ver-top text-center" ng-show="entities.length === 0">
+          <span class="spacer"></span>
+          <i class="material-icons md-22">error</i>&nbsp;
+          No questions found. Try a <a href="" title="Sets" class="fc-subtitle underline" ng-click="backToSets()">different set</a>?
+          <span class="spacer40"></span>
+        </div>
+        <div
+          class="question panel border-radius-x4 text-left pos-relative font14"
+          ng-repeat="(key, value) in entities">
+          <div class="scale-in-ver-top" ng-show="value.format === 'question'">
+            <h3 ng-bind-html="value.entity_text"></h3>
+            <span ng-show="value.graphic" class="img"><img src="{{ value.graphic }}" alt=""></span>
+            <span class="choices" layout="column">
+
+              <span
+                class="choice cursor-pointer pos-relative"
+                ng-class="{ 'chosen' : userChoices('A',value.id), 'correct': evaluate('A',value.id,value.question_answer) === true, 'wrong': evaluate('A',value.id,value.question_answer) === false }">
+                <span class="choice-label" layout="row">
+                  <span class="choice-option">(A).</span>&nbsp;<label ng-bind-html="value.option_a"></label>
+                </span>
+                <input
+                  type="radio"
+                  name="{{ value.id }}"
+                  value="A"
+                  class="full-width"
+                  id="{{ value.id }}"
+                  ng-click="saveUserChoice('A',value.id)"
+                  />
+                  <span class="marker correct" layout="column" layout-align="center center" ng-show="evaluate('A',value.id,value.question_answer) === true">
+                    <i class="material-icons md-24">check</i>
+                  </span>
+                  <span class="marker wrong" layout="column" layout-align="center center" ng-show="evaluate('A',value.id,value.question_answer) === false">
+                    <i class="material-icons md-24">close</i>
+                  </span>
+              </span>
+
+              <span
+                class="choice cursor-pointer pos-relative"
+                ng-class="{ 'chosen' : userChoices('B',value.id), 'correct': evaluate('B',value.id,value.question_answer) === true, 'wrong': evaluate('B',value.id,value.question_answer) === false }">
+                <span class="choice-label" layout="row">
+                  <span class="choice-option">(B).</span>&nbsp;<label ng-bind-html="value.option_b"></label>
+                </span>
+                <input
+                  type="radio"
+                  name="{{ value.id }}"
+                  value="B"
+                  class="full-width"
+                  id="{{ value.id }}"
+                  ng-click="saveUserChoice('B',value.id)"
+                  />
+                  <span class="marker correct" layout="column" layout-align="center center" ng-show="evaluate('B',value.id,value.question_answer) === true">
+                    <i class="material-icons md-24">check</i>
+                  </span>
+                  <span class="marker wrong" layout="column" layout-align="center center" ng-show="evaluate('B',value.id,value.question_answer) === false">
+                    <i class="material-icons md-24">close</i>
+                  </span>
+              </span>
+
+              <span
+                class="choice cursor-pointer pos-relative"
+                ng-class="{ 'chosen' : userChoices('C',value.id), 'correct': evaluate('C',value.id,value.question_answer) === true, 'wrong': evaluate('C',value.id,value.question_answer) === false }">
+                <span class="choice-label" layout="row">
+                  <span class="choice-option">(C).</span>&nbsp;<label ng-bind-html="value.option_c"></label>
+                </span>
+                <input
+                  type="radio"
+                  name="{{ value.id }}"
+                  value="C"
+                  class="full-width"
+                  id="{{ value.id }}"
+                  ng-click="saveUserChoice('C',value.id)"
+                  />
+                  <span class="marker correct" layout="column" layout-align="center center" ng-show="evaluate('C',value.id,value.question_answer) === true">
+                    <i class="material-icons md-24">check</i>
+                  </span>
+                  <span class="marker wrong" layout="column" layout-align="center center" ng-show="evaluate('C',value.id,value.question_answer) === false">
+                    <i class="material-icons md-24">close</i>
+                  </span>
+              </span>
+
+              <span
+                class="choice cursor-pointer pos-relative"
+                ng-class="{ 'chosen' : userChoices('D',value.id), 'correct': evaluate('D',value.id,value.question_answer) === true, 'wrong': evaluate('D',value.id,value.question_answer) === false }">
+                <span class="choice-label" layout="row">
+                  <span class="choice-option">(D).</span>&nbsp;<label ng-bind-html="value.option_d"></label>
+                </span>
+                <input
+                  type="radio"
+                  name="{{ value.id }}"
+                  value="D"
+                  class="full-width"
+                  id="{{ value.id }}"
+                  ng-click="saveUserChoice('D',value.id)"
+                  />
+                  <span class="marker correct" layout="column" layout-align="center center" ng-show="evaluate('D',value.id,value.question_answer) === true">
+                    <i class="material-icons md-24">check</i>
+                  </span>
+                  <span class="marker wrong" layout="column" layout-align="center center" ng-show="evaluate('D',value.id,value.question_answer) === false">
+                    <i class="material-icons md-24">close</i>
+                  </span>
+              </span>
+
+              <span ng-show="value.comment && activeSetDone === true" class="comment-box pos-relative semibold">
+                <span class="condensed fc-green">EXPLANATION</span><br>
+                <p ng-bind-html="value.comment"></p>
+              </span>
+
+              <span class="spacer"></span>
+              <div class="action-bar condensed fc-subtitle" layout="row" layout-align="start end">
+                <span flex></span>
+                <a href="" ng-click="reportQuestion(value.id, $event)" class="font12 fc-subtitle" >
+                  <i class="material-icons md-16">bug_report</i>&nbsp;REPORT THIS QUESTION
+                </a>
+              </div>
+            </span>
+          </div>
+          <div class="note scale-in-ver-top" ng-show="value.format === 'note'">
+            <p ng-bind-html="value.entity_text"></p>
+            <span ng-show="value.graphic" class="img"><img src="{{ value.graphic }}" alt=""></span>
+          </div>
+        </div>
+        <!-- BUTTONS -->
+        <span class="scale-in-ver-top" ng-hide="(loading_content || questionsCount < 1 || entities.length === 0) && activeSetDone === false" layout="row">
+          <span class="text-left" layout="row" flex>
+            <md-button class="btn-white no-margin font16" ng-hide="entities.length === 0" ng-click="backToSets()">
+              <i class="material-icons vertical-align-middle md-20">arrow_back</i>&nbsp;BACK
+            </md-button>
+          </span>
+          <span layout="row" layout-align="end center" ng-hide="entities.length === 0 || activeSetDone === true">
+            <!-- <span class="font14">Done all questions?</span>&nbsp;&nbsp;&nbsp; -->
+            <md-button ng-hide="is_marking" class="yellow no-margin font16 vertical-align-bottom" ng-click="markSet()">
+              <i class="material-icons vertical-align-middle md-20">check_circle</i>&nbsp;MARK &amp; REVIEW
+            </md-button>
+            <md-button ng-show="is_marking" class="yellow no-margin font16 vertical-align-bottom" ng-click="alertWarning('Please hold. Marking is still in progress...')">
+              <i class="material-icons vertical-align-middle md-20">check_circle</i>&nbsp;MARKING...
+            </md-button>
+          </span>
+        </span>
+
+      </div>
+    </div>
+  </div>
+    <span class="spacer60"></span>
+</div>

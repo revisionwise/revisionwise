@@ -1,0 +1,27 @@
+<md-dialog aria-label="Profile update alert">
+  <div ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 class="condensed"><i class="material-icons md-28">notifications_active</i>&nbsp; PROFILE UPDATE</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content fc-body">
+        <p class="font24">Hello<strong>{{ user_fname }}</strong>, we notice your <em>RevisionWise</em> profile isn’t fully completed.</p>
+        <p class="font18">Update it now to get points and benefit more from using RevisionWise.</p>
+
+        <span class="spacer40"></span>
+        <div layout="row">
+          <span flex ng-controller="mainController as mc">
+            <md-button href="#!/profile/update" class="md-button yellow wide" ng-click="cancel()" aria-label="Profile update">Update Now</md-button>
+          </span>
+          <md-button class="md-warn" aria-label="Close dialog" ng-click="cancel()">
+            <i class="material-icons md-24">close</i>&nbsp; Remind me later
+          </md-button>
+        </div>
+      </div>
+    </md-dialog-content>
+  </div>
+</md-dialog>

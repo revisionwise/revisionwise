@@ -1,0 +1,27 @@
+
+<md-dialog aria-label="Low balance prompt">
+  <div ng-cloak class="pos-relative">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 class="condensed"><i class="material-icons md-28">account_balance_wallet</i>&nbsp; LOW WALLET BALANCE</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close dialog" ng-click="cancel('clear_active_set')">
+          <i class="material-icons">close</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content fc-body" ng-controller="userDialogController as userCtrl">
+        <span class="font18">Please top-up your e-wallet and try again. </span>
+        <span class="spacer"></span><span class="spacer"></span>
+        <span class="condensed font16 transform-uppercase">How to top-up</span>
+        <div ng-include="'/templates/top-up-instructions.html'"></div>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button class="md-warn" aria-label="Close dialog" ng-click="cancel('clear_active_set')">CLOSE</md-button>
+    </md-dialog-actions>
+  </div>
+</md-dialog>

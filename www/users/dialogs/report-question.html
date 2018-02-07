@@ -1,0 +1,60 @@
+<md-dialog aria-label="Report question" ng-controller="userDialogController">
+  <div ng-cloak class="pos-relative">
+    <md-toolbar ng-show="sent_form === false">
+      <div class="md-toolbar-tools">
+        <h2 class="condensed"><i class="material-icons md-28">bug_report</i>&nbsp; REPORT THIS QUESTION</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close dialog" ng-click="cancel()">
+          <i class="material-icons">close</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content ng-show="sent_form === false">
+      <div class="md-dialog-content fc-body">
+        <span class="font18">Select your reason for reporting this question:</span>
+        <span class="spacer"></span>
+        <form name="reportQuestionForm" method="post" novalidate ng-submit="submitReport(data)">
+          <input class="hidden" type="number" name="entity_id" value="" ng-init="data.entity_id = set_id" ng-model="data.entity_id">
+          <!-- REASON -->
+          <div class="input-wrapper" ng-class="{ 'input-error' :  submitted && !data.reporting_reason_id }">
+            <md-radio-group ng-model="data.reporting_reason_id" required>
+              <md-radio-button ng-repeat="(key, value) in reporting_reasons" name="reason" value="{{ value.id }}" class="md-primary">{{ value.name }}</md-radio-button>
+            </md-radio-group>
+            <div class="help-block" ng-messages="reportQuestionForm.reporting_reason_id.$error" ng-show="submitted && !data.reporting_reason_id">
+              <p class="scale-in-ver-top"><i class="material-icons md-18">error_outline</i>&nbsp;Please select a reaon above.</p>
+            </div>
+          </div>
+          <span class="spacer"></span>
+          <!-- DESCRIPTION -->
+          <div class="input-wrapper">
+            <label class="text-left condensed font16">&nbsp;DESCRIPTION</label>
+            <textarea name="description" rows="5" cols="80" ng-model="data.description" placeholder="Write your thoughts here..."></textarea>
+          </div>
+
+          <!-- SUBMIT BUTTON -->
+          <span layout="row" layout-align="start center">
+            <md-button type="submit" class="yellow wide" aria-label="Submit">
+              <span ng-hide="submitting_report">Submit</span> <span ng-show="submitting_report">Submitting...</span>
+            </md-button>&nbsp;&nbsp;
+            <span class="loader" ng-show="submitting_report"><img src="assets/img/loader.gif" alt=""></span>
+          </span>
+          <span class="spacer"></span>
+        </form>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-content ng-show="sent_form === true" layout="column" layout-align="start center">
+      <div class="md-dialog-content fc-body">
+        <span class="font28 scale-in-center text-center">
+          <i class="material-icons fc-yellow md-42 scale-in-center">check_circle</i>
+          Submitted Successfully!
+        </span>
+        <p>Thank you for your feedback, our team will evaluate and take necessary action.</p>
+        <md-button class="yellow wide fade-in-fwd" aria-label="Done" ng-click="cancel()">
+          Done
+        </md-button>
+      </div>
+    </md-dialog-content>
+  </div>
+</md-dialog>

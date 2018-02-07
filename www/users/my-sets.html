@@ -1,0 +1,61 @@
+<div class="content main-content loggedin text-center content-levels" layout="column" layout-align="start center" ng-cloak>
+
+    <!-- Sets -->
+    <div layout="column" layout-align="start center" class="full-width-960">
+      <div class="section section-top scale-in-ver-top" layout="column" layout-align="start center">
+        <h1 class="condensed font28 ">MY SETS</h1>
+        <div class="sub-title semibold" ng-show="sets.length > 0">
+          You have {{ sets.length }} <span ng-show="sets.length > 1">sets in total.</span><span ng-show="sets.length === 1">set.</span>
+        </div>
+        <span class="spacer"></span><span class="spacer"></span>
+      </div>
+      <span class="loader center-align" ng-show="loading_content"><img src="assets/img/loader.gif" alt=""></span>
+      <div class="section scale-in-ver-top" ng-show="loading_content === false" ng-cloak>
+        <div
+          class="listing panel border-radius-x4 text-left"
+          ng-repeat="(key, value) in sets | orderBy: value.priority"
+          layout="column">
+          <div class="condensed transform-initial font20 full-width set-title">{{ value.name }}</div>
+          <div class="set-meta condensed" layout="row" layout-align="start start">
+            <span class="premium" ng-show="value.premium === true">PREMIUM</span>
+            <span class="free" ng-show="value.premium === false">FREE</span>
+            <span class="price">{{ value.currency }}. {{ value.price }}</span>
+            <span class="questions">{{ value.questions_count }} Questions</span>
+            <span class="provider-meta">Provided by {{ value.content_provider.name }}</span>
+            <span class="user-meta">
+              <span class="progress" ng-show="value.user_set.progress > 0">Your progress: {{ value.user_set.progress }}/{{ value.questions_count }}</span>
+              <span class="days" ng-show="value.user_set.days_to_expiry > 0">Access: {{ value.user_set.days_to_expiry }} Days</span>
+            </span>
+            <span class="restart text-right">
+              <span
+                ng-show="value.user_set.marked === true || (value.user_set.marked === false && value.user_set.progress > 0)"
+                class="cursor-pointer"
+                ng-click="verifySetAccess(value.id, value.name, value.currency, value.price, value.user_set.is_expired, 'restart')">
+                RESTART&nbsp;<i class="material-icons md-18">replay</i>
+              </span>
+            </span>
+            <span
+              ng-show="value.user_set.marked === false && value.user_set.progress > 0"
+              class="continue fc-teal cursor-pointer text-right"
+              ng-click="verifySetAccess(value.id, value.name, value.currency, value.price, value.user_set.is_expired, 'continue')">
+              CONTINUE&nbsp;<i class="material-icons md-18">arrow_forward</i>
+            </span>
+            <span
+              ng-show="!value.user_set || (value.user_set.progress === 0 || value.user_set.progress === null)"
+              class="start fc-green cursor-pointer text-right fade-in-top"
+              ng-click="verifySetAccess(value.id, value.name, value.currency, value.price, value.user_set.is_expired, 'start')">
+              START&nbsp;<i class="material-icons md-18">play_arrow</i>
+            </span>
+            <span
+              ng-show="value.user_set.marked === true"
+              class="review fc-yellow cursor-pointer text-right fade-in-top"
+              ng-click="verifySetAccess(value.id, value.name, value.currency, value.price, value.user_set.is_expired, 'review')">
+              REVIEW&nbsp;<i class="material-icons md-18">rate_review</i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <span class="spacer60"></span>
+</div>

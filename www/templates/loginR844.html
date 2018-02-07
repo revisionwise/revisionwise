@@ -1,0 +1,45 @@
+<div class="content auth login text-center">
+  <img ng-src="assets/img/rw-logo_alt.png" height="42" alt="RevisionWise" class="app-logo" />
+  <div class="register panel text-center border-radius-x2 fade-in-top">
+    <div class="form-wrapper">
+      <h1 class="condensed fc-subtitle" flex><span class="fc-yellow italic">ONE-TIME</span> LOGIN</h1>
+      <div class="sub-title">Access <strong>Revision844</strong> to update your profile and migrate your data to <strong>RevisionWise!</strong> </div>
+      <span class="spacer_border"></span>
+      <div class="form-error text-center" ng-show="errorMsg">
+        <p><i class="material-icons md-18">report_problem</i> &nbsp;{{ errorMsg }}</p>
+      </div>
+      <!-- ****** LOGIN FORM ****** -->
+
+      <form name="loginFormR844" novalidate>
+        <!-- EMAIL -->
+        <div class="input-wrapper" ng-class="{ 'input-error' : submitted && loginFormR844.email.$invalid }">
+          <label class="text-left">&nbsp;Enter email address <span class="required">*</span></label>
+          <input type="email" ng-class="{ 'input-error' : submitted && loginFormR844.email.$invalid }" name="email" ng-model="user.email" required placeholder="Email address" ng-model-options="{ updateOn: 'blur' }">
+          <div class="help-block" ng-messages="loginFormR844.email.$error" ng-show="submitted" ng-class="{ 'input-error' : submitted && loginFormR844.email.$invalid }">
+            <p ng-message="required">Email address is required</p>
+            <p ng-message="email">Email address format is invalid</p>
+          </div>
+        </div>
+        <!-- PASS -->
+        <div class="input-wrapper" ng-class="{ 'input-error' : submitted && loginFormR844.password.$invalid }">
+          <label class="text-left">&nbsp;Enter your password <span class="required">*</span></label>
+          <input type="password" name="password" ng-model="user.password" required ng-model-options="{ updateOn: 'blur' }">
+          <div class="help-block" ng-messages="loginFormR844.password.$error" ng-show="submitted">
+            <p ng-message="required">Password is required</p>
+          </div>
+        </div>
+        <!-- SUBMIT BUTTON -->
+        <md-button type="submit" class="yellow wide" aria-label="Submit" ng-click="loginR844(user)">
+          <span ng-hide="loggin_in">Submit</span> <span ng-show="loggin_in">Submitting...</span>
+        </md-button>
+        <br><span class="loader" ng-show="loggin_in"><img src="assets/img/loader.gif" alt=""></span>
+        <span class="spacer"></span><span class="spacer"></span>
+        <span class="text-center"><a href="#!/user/revision844/reset">Forgot Revision844 password?</a></span>
+      </form>
+    </div>
+    <a href="#!/user" title="RevisionWise user login" class="full-width lg-link">
+      <i class="material-icons md-20">arrow_back</i> Back to <strong>RevisionWise</strong> login.
+    </a>
+  </div>
+  <div class="fade05 font12" ng-include="'/templates/footer-user.html'"></div>
+</div>

@@ -1,0 +1,26 @@
+<md-dialog aria-label="HOW TO TOP UP YOUR E-WALLET">
+  <div ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 class="condensed">HOW TO TOP UP YOUR E-WALLET</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close dialog" ng-click="cancel()">
+          <i class="material-icons">close</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <div ng-include="'templates/top-up-instructions.html'"></div>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button class="md-warn" aria-label="Close dialog" ng-click="cancel()">
+        CLOSE
+      </md-button>
+    </md-dialog-actions>
+  </div>
+</md-dialog>

@@ -1,0 +1,57 @@
+<div class="content auth login text-center">
+  <img ng-src="assets/img/rw-logo_alt.png" height="42" alt="RevisionWise" class="app-logo" />
+  <div class="login panel text-center border-radius-x2 fade-in-top">
+    <div class="form-wrapper">
+      <h1 class="condensed fc-subtitle" flex>LOGIN</h1>
+      <div class="form-error text-center" ng-show="errorMsg">
+        <p><i class="material-icons md-18">report_problem</i> &nbsp;{{ errorMsg }}</p>
+      </div>
+
+      <!-- ****** LOGIN FORM ****** -->
+
+      <form name="loginForm" novalidate ng-submit="login(user)">
+        <!-- PHONE NO -->
+        <div class="input-wrapper dual">
+          <label class="text-left">&nbsp;Enter phone number <span class="required">*</span></label>
+          <input type="number" class="dual-sm" ng-class="{ 'input-error' : submitted && loginForm.code.$invalid }" name="code" ng-init="user.code = 254" ng-model="user.code" ng-minlength="3" ng-maxlength="3" required ng-model-options="{ updateOn: 'blur' }">
+          <input type="number" class="dual-lg" ng-class="{ 'input-error' : submitted && loginForm.mobile.$invalid }" name="mobile" ng-model="user.mobile" ng-minlength="9" ng-maxlength="12" required placeholder="e.g. 0723xxxxxx" ng-model-options="{ updateOn: 'blur' }">
+          <div class="help-block" ng-messages="loginForm.mobile.$error" ng-show="submitted" ng-class="{ 'input-error' : (submitted && loginForm.code.$invalid) || (submitted && loginForm.mobile.$invalid) }">
+            <p ng-message="number">Phone number is not valid</p>
+            <p ng-message="required">Phone number is required</p>
+            <p ng-message="maxlength">Phone number should be 12 digits or less</p>
+            <p ng-message="minlength">Phone number should be 9 digits or more</p>
+          </div>
+          <div class="help-block" ng-messages="loginForm.code.$error" ng-show="submitted" ng-class="{ 'input-error' : (submitted && loginForm.code.$invalid) || (submitted && loginForm.mobile.$invalid) }">
+            <p ng-message="number">Country code is not valid</p>
+            <p ng-message="required">Country code is required</p>
+            <p ng-message="maxlength">Country code should be 3 digits</p>
+            <p ng-message="minlength">Country code should be 3 digits</p>
+          </div>
+        </div>
+        <!-- PIN -->
+        <div class="input-wrapper" ng-class="{ 'input-error' : (submitted && loginForm.pin.$invalid) || (submitted && loginForm.pin.$invalid) }">
+          <label class="text-left">&nbsp;Enter your 4-digit pin <span class="required">*</span></label>
+          <input type="password" name="pin" ng-model="user.pin" ng-minlength="4" ng-maxlength="4" required ng-model-options="{ updateOn: 'blur' }">
+          <div class="help-block" ng-messages="loginForm.pin.$error" ng-show="submitted">
+            <p ng-message="required">Pin is required</p>
+            <p ng-message="maxlength">Pin should be 4 digits</p>
+            <p ng-message="minlength">Pin should be 4 digits</p>
+          </div>
+        </div>
+        <!-- SUBMIT BUTTON -->
+        <md-button type="submit" class="yellow wide" aria-label="Submit" >
+          <span ng-hide="loggin_in">Submit</span><span ng-show="loggin_in">Submitting...</span>
+        </md-button>
+        <br><span class="loader" ng-show="loggin_in"><img src="assets/img/loader.gif" alt=""></span>
+        <span class="spacer"></span>
+        <span class="spacer"></span>
+        <span class="text-center"><a href="#!/user/register">Register new account?</a></span>&nbsp;&nbsp;•&nbsp;&nbsp;<span class="text-center"><a href="#!/user/reset">Forgot pin?</a></span>
+      </form>
+    </div>
+    <a href="#!/user/revision844" title="Revision844 user login" class="full-width lg-link">
+      <strong>Revision 844</strong> users can login here <i class="material-icons md-20">arrow_forward</i>
+    </a>
+
+  </div>
+  <div class="fade05 font12" ng-include="'/templates/footer-user.html'"></div>
+</div>

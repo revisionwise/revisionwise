@@ -1,0 +1,98 @@
+<md-dialog aria-label="Refer a friend" ng-controller="userDialogController">
+  <div ng-cloak class="pos-relative">
+    <md-toolbar ng-show="sent_form === false">
+      <div class="md-toolbar-tools">
+        <h2 class="condensed"><i class="material-icons md-32">group_add</i>&nbsp; REFER A FRIEND</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close dialog" ng-click="cancel()">
+          <i class="material-icons">close</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content ng-show="sent_form === false">
+      <div class="md-dialog-content fc-body" layout="row" layout-xs="column" layout-sm="column">
+        <form name="referFriendForm" method="post" novalidate flex ng-submit="referFriend(data)">
+
+          <div class="form-error text-left" ng-show="errorMsg">
+            <p><i class="material-icons md-18">report_problem</i> &nbsp;{{ errorMsg }}</p>
+          </div>
+
+          <!-- FRIEND'S NAME -->
+          <div class="input-wrapper" ng-class="{ 'input-error' : submitted && referFriendForm.name.$invalid }">
+            <label class="text-left">&nbsp;Enter friend's name <span class="required">*</span></label>
+            <input type="text" ng-class="{ 'input-error' : submitted && referFriendForm.name.$invalid }" name="name" ng-model="data.name" required placeholder="e.g. John Doe" ng-model-options="{ updateOn: 'blur' }">
+            <div class="help-block" ng-messages="referFriendForm.name.$error" ng-show="submitted" ng-class="{ 'input-error' : submitted && referFriendForm.name.$invalid }">
+              <p ng-message="required">Friend's name is required</p>
+            </div>
+          </div>
+          <!-- PHONE -->
+          <div class="input-wrapper dual">
+            <label class="text-left">&nbsp;Enter friend's phone number <span class="required">*</span></label>
+            <input type="number" class="dual-sm" ng-class="{ 'input-error' : submitted && referFriendForm.code.$invalid }" name="code" ng-init="data.code = 254" ng-model="data.code" ng-minlength="3" ng-maxlength="3" required ng-model-options="{ updateOn: 'blur' }">
+            <input type="number" class="dual-lg" ng-class="{ 'input-error' : submitted && referFriendForm.mobile.$invalid }" name="mobile" ng-model="data.mobile" ng-minlength="9" ng-maxlength="12" required placeholder="e.g. 0723xxxxxx" ng-model-options="{ updateOn: 'blur' }">
+            <div class="help-block" ng-messages="referFriendForm.mobile.$error" ng-show="submitted" ng-class="{ 'input-error' : (submitted && referFriendForm.code.$invalid) || (submitted && referFriendForm.mobile.$invalid) }">
+              <p ng-message="number">Phone number is not valid</p>
+              <p ng-message="required">Phone number is required</p>
+              <p ng-message="maxlength">Phone number should be 12 digits or less</p>
+              <p ng-message="minlength">Phone number should be 9 digits or more</p>
+            </div>
+            <div class="help-block" ng-messages="referFriendForm.code.$error" ng-show="submitted" ng-class="{ 'input-error' : (submitted && referFriendForm.code.$invalid) || (submitted && referFriendForm.mobile.$invalid) }">
+              <p ng-message="number">Country code is not valid</p>
+              <p ng-message="required">Country code is required</p>
+              <p ng-message="maxlength">Country code should be 3 digits</p>
+              <p ng-message="minlength">Country code should be 3 digits</p>
+            </div>
+          </div>
+          <!-- PHONE X2 -->
+          <div class="input-wrapper dual">
+            <label class="text-left">&nbsp;Confirm friend's phone number <span class="required">*</span></label>
+            <input type="number" class="dual-sm" ng-class="{ 'input-error' : submitted && referFriendForm.code.$invalid }" name="confirm_code" ng-init="data.confirm_code = 254" ng-model="data.confirm_code" ng-minlength="3" ng-maxlength="3" required ng-model-options="{ updateOn: 'blur' }">
+            <input type="number" class="dual-lg" ng-class="{ 'input-error' : submitted && referFriendForm.confirm_mobile.$invalid }" name="confirm_mobile" ng-model="data.confirm_mobile" ng-minlength="9" ng-maxlength="12" required placeholder="e.g. 0723xxxxxx" ng-model-options="{ updateOn: 'blur' }">
+            <div class="help-block" ng-messages="referFriendForm.confirm_mobile.$error" ng-show="submitted" ng-class="{ 'input-error' : (submitted && referFriendForm.confirm_code.$invalid) || (submitted && referFriendForm.confirm_mobile.$invalid) }">
+              <p ng-message="number">Phone number is not valid</p>
+              <p ng-message="required">Phone number confirmation is required</p>
+              <p ng-message="maxlength">Phone number should be 12 digits or less</p>
+              <p ng-message="minlength">Phone number should be 9 digits or more</p>
+            </div>
+            <div class="help-block" ng-messages="referFriendForm.confirm_code.$error" ng-show="submitted" ng-class="{ 'input-error' : (submitted && referFriendForm.confirm_code.$invalid) || (submitted && referFriendForm.confirm_mobile.$invalid) }">
+              <p ng-message="number">Country code is not valid</p>
+              <p ng-message="required">Country code is required</p>
+              <p ng-message="maxlength">Country code should be 3 digits</p>
+              <p ng-message="minlength">Country code should be 3 digits</p>
+            </div>
+            <div class="help-block" ng-hide="is_matching" ng-class="{ 'input-error' : !is_matching }" >
+              <p>Phone numbers don't match</p>
+            </div>
+          </div>
+          <!-- SUBMIT BUTTON -->
+          <span layout="row" layout-align="start center">
+            <md-button type="submit" class="yellow wide no-margin" aria-label="Submit">
+              <span ng-hide="submitting_form">Submit</span> <span ng-show="submitting_form">Submitting...</span>
+            </md-button>&nbsp;&nbsp;
+            <span class="loader" ng-show="submitting_form"><img src="assets/img/loader.gif" alt=""></span>
+          </span>
+          <span class="spacer"></span>
+        </form>
+
+        <div class="blurb panel font18" flex>
+          <p>Refer <em>RevisionWise</em> to a friend and share the benefits of being able to revise anywhere, anytime.</p>
+          <p>Every referral you make earns you valuable points.</p>
+        </div>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-content ng-show="sent_form === true" layout="column" layout-align="start center">
+      <div class="md-dialog-content fc-body">
+        <span class="font28 scale-in-center text-center">
+          <i class="material-icons fc-yellow md-42 scale-in-center">check_circle</i>
+          Submitted Successfully!
+        </span>
+        <p>Your friend will receive the invitation and you will receive points when they sign-up on ReviwionWise.</p>
+        <md-button class="yellow wide fade-in-fwd" aria-label="Done" ng-click="cancel()">
+          Done
+        </md-button>
+      </div>
+    </md-dialog-content>
+  </div>
+</md-dialog>

@@ -1,0 +1,74 @@
+body main .main-content.dashboard .section {
+  max-width: 960px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+body main .main-content .section-top.categories {
+  border-bottom: solid 1px #687077;
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+  overflow: auto;
+}
+.categories ul li {
+  margin: 5px;
+  position: relative;
+  display: inline-block;
+}
+.categories ul li a {
+  padding: 10px 15px;
+  background: #677077;
+  color: #fff;
+  white-space: nowrap;
+  display: block;
+}
+.categories ul li.active a,
+.categories ul li a:hover,
+.categories ul li a:focus {
+  background: #252839
+}
+.grid {
+  min-height: 600px;
+  margin-bottom: 120px;
+}
+.grid md-grid-tile {
+  background: #252839;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -moz-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.grid md-grid-tile .icon,
+.grid md-grid-tile .title{
+  width: 100%;
+  padding: 2px 4%;
+  max-height: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.grid md-grid-tile:hover,
+.grid md-grid-tile:focus {
+  color: #f2b632;
+}
+
+/*---599px---------------------------------------------------------------------*/
+
+@media (max-width: 599px) {
+  .grid md-grid-tile .title {
+    font-size: 20px;
+  }
+}
+
+/*---480px---------------------------------------------------------------------*/
+
+@media (max-width: 480px) {
+  .grid md-grid-tile .title {
+    font-size: 16px;
+    max-height: 48px;
+  }
+  .categories ul li {
+    display: block;;
+  }
+}
