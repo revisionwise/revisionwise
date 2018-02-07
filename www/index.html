@@ -1,91 +1,103 @@
 <!DOCTYPE html>
 <html ng-app="rwApp" ng-controller="mainController">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta name="MobileOptimized" content="width">
-    <meta name="HandheldFriendly" content="true">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta itemprop="name" content="">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="">
-    <meta property="og:image" content="" />
-    <meta itemprop="url" content="">
-    <meta name="keywords" content="">
+  <meta name="MobileOptimized" content="width">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Making revision - for exams, tests and life situations - simple, exciting and accessible. On mobile. On tablet. Online.">
+  <meta name="author" content="Haba Haba & Co">
+  <meta itemprop="name" content="RevisionWise">
+  <meta itemprop="description" content="Making revision - for exams, tests and life situations - simple, exciting and accessible. On mobile. On tablet. Online.">
+  <meta itemprop="image" content="https://www.revisionwise.com/assets/img/rw-square-300x250.png">
+  <meta itemprop="url" content="https://www.revisionwise.com">
+  <meta property="og:title" content="RevisionWise">
+  <meta property="og:description" content="Making revision - for exams, tests and life situations - simple, exciting and accessible. On mobile. On tablet. Online.">
+  <meta property="og:url" content="https://www.revisionwise.com">
+  <meta property="og:type" content="Application" />
+  <meta property="og:image" content="https://www.revisionwise.com/assets/img/rw-square-300x250.png" />
+  <meta property="og:image:width" content="300" />
+  <meta property="og:image:height" content="250" /><meta property="twitter:title" content="RevisionWise">
+  <meta property="twitter:description" content="Making revision - for exams, tests and life situations - simple, exciting and accessible. On mobile. On tablet. Online.">
+  <meta property="twitter:url" content="https://www.revisionwise.com">
+  <meta property="twitter:image" content="https://www.revisionwise.com/assets/img/rw-square-300x250.png" />
+  <meta name="twitter:card" content="app">
+  <meta name="twitter:app:name:googleplay" content="RevisionWise">
+  <meta name="twitter:app:id:googleplay" content="com.revisionwise">
+  <meta name="twitter:app:url:googleplay" content="https://play.google.com/store/apps/details?id=com.revisionwise">
+
+  <meta name="keywords" content="revisionwise revision study revise kenya 8-4-4 844 curriculum first-aid driving mobile app tablet online android iOS">
+
+  <title ng-bind="Page.title()+'Revisionwise'">RevisionWise</title>
+  <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/vnd.microsoft.icon" />
+  <link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Open+Sans:300,400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <link rel="stylesheet" href="assets/css/animista.css" />
+  <link rel="stylesheet" href="assets/css/angular-toastr.css" />
+  <link rel="stylesheet" href="assets/css/user.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+  <link rel="stylesheet" href="assets/css/content.css" />
+  <link rel="stylesheet" href="assets/css/set.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="100" scroll class="{{ Page.bodyClass() }} fc-body" layout="column">
+<div id="toast-container"></div>
+<header>
+  <div ng-include="'templates/header.html'"></div>
+</header>
+<main id="main" ng-cloak>
+  <div ng-include="'templates/mobile-menu.html'"></div>
+  <div ng-view></div>
+</main>
+<footer><div ng-include="'templates/footer.html'"></div></footer>
+
+<!-- Import app dependencies -->
+<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+<script type="text/javascript" src="node_modules/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="assets/js/angular-toastr.tpls.js"></script>
+<script type="text/javascript" src="node_modules/angular-aria/angular-aria.min.js"></script> <!-- ngAria - for accessibility support -->
+<script type="text/javascript" src="node_modules/angular-material/angular-material.min.js"></script>
+<script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="assets/js/angular-password.min.js"></script>
+<script type="text/javascript" src="assets/js/angular-local-storage.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-messages.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+
+<!-- For phonegap mobile app -->
+<script type="text/javascript" src="cordova.js"></script>
+
+<!-- For main app -->
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="app-controller.js"></script>
+<script type="text/javascript" src="app-service.js"></script>
+<script type="text/javascript" src="assets/js/script.js"></script>
+
+<!-- For general templates -->
+<script type="text/javascript" src="templates/home-controller.js"></script>
+<script type="text/javascript" src="templates/auth-controller.js"></script>
+
+<!-- For users -->
+<script type="text/javascript" src="users/user-controller.js"></script>
+<script type="text/javascript" src="users/dialogs/user-dialog-controller.js"></script>
+<script type="text/javascript" src="users/dashboard-controller.js"></script>
+<script type="text/javascript" src="users/content-controller.js"></script>
+<script type="text/javascript" src="users/set-controller.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113713373-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113713373-1');
+</script>
 
 
-
-      <title ng-bind="Page.title()+'Revisionwise'">RevisionWise</title>
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/vnd.microsoft.icon" />
-    <link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Open+Sans:300,400,600" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/app.css" />
-    <link rel="stylesheet" href="assets/css/animista.css" />
-    <link rel="stylesheet" href="assets/css/angular-toastr.css" />
-    <link rel="stylesheet" href="assets/css/user.css" />
-    <link rel="stylesheet" href="assets/css/dashboard.css" />
-    <link rel="stylesheet" href="assets/css/content.css" />
-    <link rel="stylesheet" href="assets/css/set.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
-  </head>
-  <body data-spy="scroll" data-target=".navbar" data-offset="100" scroll class="{{ Page.bodyClass() }} fc-body" layout="column">
-    <div id="toast-container"></div>
-    <header>
-      <div ng-include="'templates/header.html'"></div>
-    </header>
-    <main id="main" ng-cloak>
-      <div ng-include="'templates/mobile-menu.html'"></div>
-      <div ng-view></div>
-    </main>
-    <footer><div ng-include="'templates/footer.html'"></div></footer>
-
-    <!-- Import app dependencies -->
-    <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
-    <script type="text/javascript" src="node_modules/angular-animate/angular-animate.min.js"></script>
-    <script type="text/javascript" src="assets/js/angular-toastr.tpls.js"></script>
-    <script type="text/javascript" src="node_modules/angular-aria/angular-aria.min.js"></script> <!-- ngAria - for accessibility support -->
-    <script type="text/javascript" src="node_modules/angular-material/angular-material.min.js"></script>
-    <script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>
-    <script type="text/javascript" src="assets/js/angular-password.min.js"></script>
-    <script type="text/javascript" src="assets/js/angular-local-storage.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-messages.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
-
-    <!-- For phonegap mobile app -->
-    <script type="text/javascript" src="cordova.js"></script>
-
-    <!-- For main app -->
-    <script type="text/javascript" src="app.js"></script>
-    <script type="text/javascript" src="app-controller.js"></script>
-    <script type="text/javascript" src="app-service.js"></script>
-    <script type="text/javascript" src="assets/js/script.js"></script>
-
-    <!-- For general templates -->
-    <script type="text/javascript" src="templates/home-controller.js"></script>
-    <script type="text/javascript" src="templates/auth-controller.js"></script>
-
-    <!-- For users -->
-    <script type="text/javascript" src="users/user-controller.js"></script>
-    <script type="text/javascript" src="users/dialogs/user-dialog-controller.js"></script>
-    <script type="text/javascript" src="users/dashboard-controller.js"></script>
-    <script type="text/javascript" src="users/content-controller.js"></script>
-    <script type="text/javascript" src="users/set-controller.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113713373-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-113713373-1');
-    </script>
-
-
-  </body>
+</body>
 </html>
