@@ -8,6 +8,13 @@ rwApp.controller('mainController', function($scope, $rootScope, $http, Globals, 
   $rootScope.path = $location.path();
   $(document).find('body').scrollTop(0);
 
+  $rootScope.demo_user_id = 1;
+  $rootScope.demo_user_mobile = 123456789;
+  $rootScope.demo_user_code = 254;
+  $rootScope.demo_user_pin = "1234";
+
+  $rootScope.demo_account = false;
+
   // GLOBAL FUNCTIONS
   $rootScope.localActiveUser = function(action, user, meta) {
     // Fetches, creates or destroys active_user local variables
@@ -54,7 +61,14 @@ rwApp.controller('mainController', function($scope, $rootScope, $http, Globals, 
       $rootScope.user_token = $rootScope.user_points = $rootScope.user_wallet =
       $rootScope.user_phone = $rootScope.login_type = "";
     }
+
+    if($rootScope.user_id == $rootScope.demo_user_id){  // demo user
+        $rootScope.demo_account = true;
+    }
+
   };
+
+
 
   $rootScope.localActiveSet = function(action, user_set, collection) {
     // Fetches or destroys active_set local variables

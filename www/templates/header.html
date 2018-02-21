@@ -24,6 +24,9 @@
 
       <!-- Standard dashboard menu -->
       <li ng-show="user_token && !reqHome">
+        <span ng-controller="authController"><md-button href="" title="Join RevisionWise" ng-click="register_from_demo()" class="green normal">Join RevisionWise</md-button></span>
+      </li>
+      <li ng-show="user_token && !reqHome">
         <a href="#!/" target="_self" class="" title="Home"><i class="material-icons md-24">home</i></a>
       </li>
       <li ng-show="user_token && !reqHome">
@@ -32,11 +35,14 @@
       <li ng-show="user_token && !reqHome">
         <a href="#!/profile/sets" target="_self" class="" title="My Sets">My Sets</a>
       </li>
-      <li ng-show="user_token && !reqHome">
+      <li ng-show="user_token && !reqHome && !$root.demo_account">
         <a href="#!/profile" target="_self" class="" title="My Profile">My Profile</a>
       </li>
 
       <!-- Buttons shown before login -->
+      <li ng-show="!user_token">
+        <span ng-controller="authController"><md-button href="" title="Try the RevisionWise demo - Free" ng-click="login_demo()" class="green normal">Try/Demo</md-button></span>
+      </li>
       <li ng-show="!user_token">
          <md-button class="yellow normal" href="#!/user" target="_self">Login</md-button>
       </li>
@@ -69,7 +75,7 @@
               <md-menu-item class="cursor-pointer" ng-click="showDialog('templates/dialogs/ewallet-topup.html')">
                 <a target="_self">Top up your e-wallet</a>
               </md-menu-item>
-              <md-menu-item class="cursor-pointer" ng-click="$mdCloseMenu()">
+              <md-menu-item class="cursor-pointer" ng-click="$mdCloseMenu()" ng-show="$root.demo_account==false">
                 <a href="#!/profile">My profile</a>
               </md-menu-item>
               <md-menu-item class="cursor-pointer" ng-click="showDialog('users/dialogs/refer-friend.html')">

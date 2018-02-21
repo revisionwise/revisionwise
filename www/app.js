@@ -7,8 +7,8 @@ rwApp.config(function($routeProvider, $locationProvider) {
   $locationProvider.hashPrefix('!');
   $routeProvider
   .when('/', { // default routes to home
-      templateUrl : 'users/dashboard.html',
-      controller: 'dashboardController'
+      templateUrl : 'templates/home.html',
+      controller: 'homeController'
   })
   .when('/user', {
     templateUrl : 'templates/login.html',

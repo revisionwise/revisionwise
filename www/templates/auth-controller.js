@@ -184,7 +184,24 @@ rwApp.controller('authController', function($scope, $rootScope, $routeParams, $h
     else {
       $scope.loggin_in = false;
     }
-  }
+  };
+
+
+  $scope.login_demo = function(){
+
+      var user = {code: $rootScope.demo_user_code, mobile: $rootScope.demo_user_mobile, pin: $rootScope.demo_user_pin};
+      $scope.loginForm = {
+        $invalid: false
+      };
+      $scope.login(user);
+
+  };
+
+  $scope.register_from_demo = function(){
+
+      $rootScope.logout_redirect('/user/register');
+
+  };
 
   $scope.resetPinStep1 = function(user) {
     $scope.submitted = true;
@@ -325,7 +342,11 @@ rwApp.controller('authController', function($scope, $rootScope, $routeParams, $h
     }
   };
 
-  $rootScope.logout = function(){
+    $rootScope.logout = function(){
+      $rootScope.logout_redirect('/');
+    };
+
+  $rootScope.logout_redirect = function(redirect){
     $rootScope.logging_out = true;
     if($rootScope.user_id = localStorageService.get('user_id')) {
       $http({
@@ -334,19 +355,19 @@ rwApp.controller('authController', function($scope, $rootScope, $routeParams, $h
         url: Globals.rwAPI+'/users/'+$rootScope.user_id+'/logout'
       }).then(function successCallback(response) {
         $rootScope.localActiveUser('destroy');
-        $location.path('/');
+        $location.path(redirect);
         $rootScope.logging_out = false;
       }, function errorCallback(response) {
         $rootScope.logging_out = false;
         $rootScope.localActiveUser('destroy');
-        $location.path('/');
+        $location.path(redirect);
       });
     } else {
       $rootScope.logging_out = false;
       $rootScope.localActiveUser('destroy');
       $location.path('/user');
     }
-  }
+  };
 
   $scope.r844UpdateStep1 = function(user) {
     $scope.submitted = true;

@@ -85,7 +85,7 @@
     color: #ffffff;
   }
   body.home .section.overview .backdrop {
-    padding: 150px 0;
+    padding: 10px 0;
     background: rgba(0,0,0,0.4);
     position: absolute;
     width: 100%;
@@ -212,7 +212,7 @@
     min-width: 200px;
   }
   body.home .section.overview .backdrop {
-    padding: 100px 0;
+    padding: 10px 0;
   }
   body.home .section .panel-right {
     margin-top: 0;

@@ -26,7 +26,7 @@
       <span class="spacer"></span><span class="spacer"></span>
       <li ng-show="user_token" class="condensed transform-uppercase">
         <a class="fc-subtitle" href="#!/dashboard">Dashboard</a>
-        <a class="fc-subtitle" href="#!/profile">My profile</a>
+        <a class="fc-subtitle" href="#!/profile" ng-show="$root.demo_account==false">My profile</a>
         <a class="fc-subtitle" target="_self" ng-click="showDialog('users/dialogs/refer-friend.html')">Refer a friend</a>
         <a href="" class="fc-red" target="_self" ng-click="logout()"><i class="material-icons md-18">power_settings_new</i>&nbsp;Logout</a>
       </li>
@@ -42,7 +42,7 @@
         <a href="#!/profile/sets" target="_self" title="My Sets">My Sets</a>
       </li>
       <li ng-show="user_token && !reqHome">
-        <a href="#!/profile" target="_self" title="My Profile">My Profile</a>
+        <a href="#!/profile" target="_self" title="My Profile" ng-show="$root.demo_account==false">My Profile</a>
       </li>
       <li ng-show="user_token && !reqHome">
         <a target="_self" title="Topup e-wallet" ng-click="showDialog('templates/dialogs/ewallet-topup.html')">Top up your e-wallet</a>
