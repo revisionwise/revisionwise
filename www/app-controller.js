@@ -57,13 +57,15 @@ rwApp.controller('mainController', function($scope, $rootScope, $http, Globals, 
     } else if (action === 'destroy') {
       // Basically logout
       localStorageService.clearAll();
-      $rootScope.user_id = $rootScope.user_fname = $rootScope.user_lname =
-      $rootScope.user_token = $rootScope.user_points = $rootScope.user_wallet =
-      $rootScope.user_phone = $rootScope.login_type = "";
+      $rootScope.user_id = $rootScope.user_fname = $rootScope.user_lname = $rootScope.user_email =
+      $rootScope.user_token = $rootScope.user_points = $rootScope.user_wallet = $rootScope.user_status =
+      $rootScope.user_currency = $rootScope.user_yob = $rootScope.user_phone = $rootScope.login_type = "";
     }
 
     if($rootScope.user_id == $rootScope.demo_user_id){  // demo user
         $rootScope.demo_account = true;
+    } else {
+        $rootScope.demo_account = false;
     }
 
   };

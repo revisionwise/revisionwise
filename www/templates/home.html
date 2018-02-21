@@ -5,7 +5,7 @@
       <span flex="90" layout="row">
         <div class="panel panel-left" flex>
           <h1 class="normal">Making revision - for exams, tests and life situations - simple, exciting and accessible</h1>
-          <md-button href="#!/profile" class="mega yellow">GET STARTED</md-button> &nbsp; <span ng-controller="authController"><md-button href="" ng-click="login_demo()" class="green">TRY/DEMO</md-button></span>
+          <span ng-show="!user_token"><md-button href="#!/profile" class="mega yellow">GET STARTED</md-button> &nbsp; <span ng-controller="authController"><md-button href="" ng-click="login_demo()" class="green">TRY/DEMO</md-button></span></span>
           <ul class="font18 semibold">
             <li>Kenyan 8-4-4 Curriculum</li>
             <li>General knowledge</li>

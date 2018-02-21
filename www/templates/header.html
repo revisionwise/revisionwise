@@ -23,7 +23,7 @@
       </li>
 
       <!-- Standard dashboard menu -->
-      <li ng-show="user_token && !reqHome">
+      <li ng-show="user_token && !reqHome &&  $root.demo_account==true">
         <span ng-controller="authController"><md-button href="" title="Join RevisionWise" ng-click="register_from_demo()" class="green normal">Join RevisionWise</md-button></span>
       </li>
       <li ng-show="user_token && !reqHome">
@@ -35,7 +35,7 @@
       <li ng-show="user_token && !reqHome">
         <a href="#!/profile/sets" target="_self" class="" title="My Sets">My Sets</a>
       </li>
-      <li ng-show="user_token && !reqHome && !$root.demo_account">
+      <li ng-show="user_token && !reqHome &&  $root.demo_account==false">
         <a href="#!/profile" target="_self" class="" title="My Profile">My Profile</a>
       </li>
 
