@@ -5,14 +5,7 @@
       <span flex="90" layout="row">
         <div class="panel panel-left" flex>
           <h1 class="normal">Making revision - for exams, tests and life situations - simple, exciting and accessible</h1>
-          <span ng-show="!user_token"><md-button href="#!/profile" class="mega yellow">GET STARTED</md-button> &nbsp; <span ng-controller="authController"><md-button href="" ng-click="login_demo()" class="green">TRY/DEMO</md-button></span></span>
-          <ul class="font18 semibold">
-            <li>Kenyan 8-4-4 Curriculum</li>
-            <li>General knowledge</li>
-            <li>Fun, family quizzes and puzzles</li>
-            <li>Professional qualifications</li>
-          	<li>Life skills</li>
-         </ul>
+          <md-button href="#!/profile" class="mega yellow" ng-show="$root.demo_account==false">GET STARTED</md-button>
           <span class="spacer"></span>
           <span class="font18"> — Get the mobile app — </span>
           <span class="spacer"></span> <span class="spacer"></span>
@@ -27,21 +20,21 @@
 
   <div class="section howitworks" id="howitworks" layout="row" layout-xs="column" layout-sm="column" layout-align="center top">
     <div class="panel panel-left" flex>
-      <span><img src="./assets/img/multiplatform.jpg" width="100%" ></span>
+      <span><a href="#" ng-click="showDialog('templates/dialogs/demo-video.html')"><img src="./assets/img/rw-video-image.jpg" width="100%" ></a></span>
     </div>
     <div class="panel panel-right" layout-align="center top" flex>
       <span flex="100" layout-align="center top">
         <h2 class="text-left">Learning that sticks!</h2>
         <ul class="font18 semibold">
-          <li>RevisionWise helps you learn and remember what really matters. Learn and revise from a wide variety of topics with ease and at your own pace.</li>
-          <li>Save your progress and pick up where you left off later.</li>
-          <li>Access a wide variety of content easily across devices</li>
-          <li>Get pointers to help you with challenging subjects or topics</li>
-          <li>Earn points for activity</li>
+          <li>Kenyan 8-4-4 Curriculum</li>
+            <li>General knowledge</li>
+            <li>Fun, family quizzes and puzzles</li>
+            <li>Professional qualifications</li>
+          	<li>Life skills</li>
         </ul>
         <span class="spacer"></span>
-        <span class="text-left full-width" flex="100">
-          <md-button class="mega yellow" ng-click="showDialog('templates/dialogs/demo-video.html')">WATCH DEMO</md-button>
+        <span class="text-left full-width" flex="100" ng-show="$root.demo_account==false">
+          <span ng-controller="authController"><md-button href="" ng-click="login_demo()" class="mega green">TRY/DEMO</md-button></span>
         </span>
       </span>
     </div>
@@ -87,7 +80,7 @@
 
     <span class="spacer"></span>
     <div class="text-center" layout="row" layout-align="center start">
-      <md-button class="mega purple md-raised" aria-label="Top up E-wallet" ng-click="showEwalletTopup($event)">Top up E-wallet</md-button>
+      <md-button class="mega purple md-raised" aria-label="Top up E-wallet" ng-click="showEwalletTopup($event)">How to Top up your E-wallet</md-button>
     </div>
     <span class="spacer60"></span>
   </div>

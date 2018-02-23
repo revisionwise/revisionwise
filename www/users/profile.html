@@ -8,7 +8,7 @@
       <span ng-show="user_phone" class="fade-in-fwd"><i class="material-icons md-20 fc-yellow">call</i> {{ user_phone }}</span>&nbsp;&nbsp;&nbsp;
     </div>
     <span class="spacer40"></span>
-    <div class="condensed font12 transform-uppercase" layout="row">
+    <div class="condensed font12 transform-uppercase" layout="row" ng-show="$root.demo_account==false">
       <a href="#!/profile/update" class="fc-subtitle" target="_self" title="Edit profile"><i class="material-icons md-16">adjust</i> Edit profile </a>
     </div>
   </div>

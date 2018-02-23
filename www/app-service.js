@@ -2,8 +2,6 @@
 
 rwApp.factory('Globals', function() {
   return {
-      // rwAPI : 'http://development.revisionwise.co.ke/api/v1'
-      // rwAPI : 'http://107.170.128.217:3001/api/v1'
       // rwAPI : 'http://localhost:3000/api/v1'
       rwAPI : 'https://api.revisionwise.com/api/v1'
   };
