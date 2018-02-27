@@ -2,10 +2,10 @@
   <div ng-cloak class="pos-relative">
     <md-toolbar ng-show="sent_form === false">
       <div class="md-toolbar-tools">
-        <h2 class="condensed"><i class="material-icons md-28">bug_report</i>&nbsp; REPORT THIS QUESTION</h2>
+        <h2 class="condensed"><i class="material-icons md-28">&#xE868;</i>&nbsp; REPORT THIS QUESTION</h2>
         <span flex></span>
         <md-button class="md-icon-button" aria-label="Close dialog" ng-click="cancel()">
-          <i class="material-icons">close</i>
+          <i class="material-icons">&#xE5CD;</i>
         </md-button>
       </div>
     </md-toolbar>
@@ -22,7 +22,7 @@
               <md-radio-button ng-repeat="(key, value) in reporting_reasons" name="reason" value="{{ value.id }}" class="md-primary">{{ value.name }}</md-radio-button>
             </md-radio-group>
             <div class="help-block" ng-messages="reportQuestionForm.reporting_reason_id.$error" ng-show="submitted && !data.reporting_reason_id">
-              <p class="scale-in-ver-top"><i class="material-icons md-18">error_outline</i>&nbsp;Please select a reaon above.</p>
+              <p class="scale-in-ver-top"><i class="material-icons md-18">&#xE001;</i>&nbsp;Please select a reaon above.</p>
             </div>
           </div>
           <span class="spacer"></span>
@@ -47,7 +47,7 @@
     <md-dialog-content ng-show="sent_form === true" layout="column" layout-align="start center">
       <div class="md-dialog-content fc-body">
         <span class="font28 scale-in-center text-center">
-          <i class="material-icons fc-yellow md-42 scale-in-center">check_circle</i>
+          <i class="material-icons fc-yellow md-42 scale-in-center">&#xE86C;</i>
           Submitted Successfully!
         </span>
         <p>Thank you for your feedback, our team will evaluate and take necessary action.</p>

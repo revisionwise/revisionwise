@@ -17,7 +17,7 @@
             <p ng-message="minlength">Verification code should be 4 digits</p>
           </div>
           <div class="help-block input-error text-center" ng-show="errorMsg">
-            <p><i class="material-icons md-18">report_problem</i> &nbsp;{{ errorMsg }}</p>
+            <p><i class="material-icons md-18">&#xE8B2;</i> &nbsp;{{ errorMsg }}</p>
           </div>
         </div>
         <span class="spacer_dashed"></span>
@@ -49,8 +49,8 @@
         <br><span class="loader" ng-show="resetting || resending_code"><img src="assets/img/loader.gif" alt=""></span>
         <span class="spacer"></span><span class="spacer"></span>
         <span class="text-center cursor-pointer">
-          <span ng-click="resendResetCode()"><i class="material-icons md-18">repeat</i> Resend verification code?</span> &nbsp;&nbsp;
-          <!-- <span ng-click="resetRegForm()"><i class="material-icons md-18">replay</i> Cancel and Restart</span> -->
+          <span ng-click="resendResetCode()"><i class="material-icons md-18">&#xE040;</i> Resend verification code?</span> &nbsp;&nbsp;
+          <!-- <span ng-click="resetRegForm()"><i class="material-icons md-18">&#xE042;</i> Cancel and Restart</span> -->
         </span>
       </form>
 

@@ -1,7 +1,7 @@
 <md-sidenav class="md-sidenav-right md-whiteframe-4dp navbar" md-component-id="mobileMenu" flex>
   <md-content layout-padding="">
     <md-button class="md-icon-button" aria-label="Close dialog" ng-click="close()">
-      <i class="material-icons">close</i>
+      <i class="material-icons">&#xE5CD;</i>
     </md-button>
 
     <!-- HOMEPAGE -->
@@ -28,7 +28,7 @@
         <a class="fc-subtitle" href="#!/dashboard">Dashboard</a>
         <a class="fc-subtitle" href="#!/profile" ng-show="$root.demo_account==false">My profile</a>
         <a class="fc-subtitle" target="_self" ng-click="showDialog('users/dialogs/refer-friend.html')">Refer a friend</a>
-        <a href="" class="fc-red" target="_self" ng-click="logout()"><i class="material-icons md-18">power_settings_new</i>&nbsp;Logout</a>
+        <a href="" class="fc-red" target="_self" ng-click="logout()"><i class="material-icons md-18">&#xE8AC;</i>&nbsp;Logout</a>
       </li>
     </ul>
 
@@ -52,20 +52,20 @@
       </li>
       <li class="transform-none condensed loggedin-user font18 fc-subtitle info" layout="column" ng-show="user_token">
         <span class="menu-item points" flex>
-          <i class="material-icons md-24">card_giftcard</i>&nbsp;<span ng-hide="updating_numbers">{{ user_points }}</span>&nbsp;<span class="loader" ng-show="updating_numbers">Updating...</span><span class="font12">Points</span>
+          <i class="material-icons md-24">&#xE8F6;</i>&nbsp;<span ng-hide="updating_numbers">{{ user_points }}</span>&nbsp;<span class="loader" ng-show="updating_numbers">Updating...</span><span class="font12">Points</span>
         </span>
       </li>
       <li class="transform-none condensed loggedin-user font18 fc-subtitle info" layout="column" ng-show="user_token">
         <span class="menu-item wallet" flex>
           <span>
-            <i class="material-icons md-24">account_balance_wallet</i>&nbsp;{{ user_currency }}.
+            <i class="material-icons md-24">&#xE850;</i>&nbsp;{{ user_currency }}.
             <span ng-hide="updating || loading_profile">{{ user_wallet }}</span>
             <span class="loader" ng-show="updating || loading_profile"><img src="assets/img/loader.gif" alt=""></span>
           </span>
         </span>
       </li>
       <li ng-show="user_token && !reqHome" class="condensed">
-        <a href="" class="fc-red" target="_self" ng-click="logout()"><i class="material-icons md-18">power_settings_new</i>&nbsp;Logout</a>
+        <a href="" class="fc-red" target="_self" ng-click="logout()"><i class="material-icons md-18">&#xE8AC;</i>&nbsp;Logout</a>
       </li>
     </ul>
 

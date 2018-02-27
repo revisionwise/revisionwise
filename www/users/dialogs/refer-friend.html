@@ -2,10 +2,10 @@
   <div ng-cloak class="pos-relative">
     <md-toolbar ng-show="sent_form === false">
       <div class="md-toolbar-tools">
-        <h2 class="condensed"><i class="material-icons md-32">group_add</i>&nbsp; REFER A FRIEND</h2>
+        <h2 class="condensed"><i class="material-icons md-32">&#xE7F0;</i>&nbsp; REFER A FRIEND</h2>
         <span flex></span>
         <md-button class="md-icon-button" aria-label="Close dialog" ng-click="cancel()">
-          <i class="material-icons">close</i>
+          <i class="material-icons">&#xE5CD;</i>
         </md-button>
       </div>
     </md-toolbar>
@@ -15,7 +15,7 @@
         <form name="referFriendForm" method="post" novalidate flex ng-submit="referFriend(data)">
 
           <div class="form-error text-left" ng-show="errorMsg">
-            <p><i class="material-icons md-18">report_problem</i> &nbsp;{{ errorMsg }}</p>
+            <p><i class="material-icons md-18">&#xE8B2;</i> &nbsp;{{ errorMsg }}</p>
           </div>
 
           <!-- FRIEND'S NAME -->
@@ -85,7 +85,7 @@
     <md-dialog-content ng-show="sent_form === true" layout="column" layout-align="start center">
       <div class="md-dialog-content fc-body">
         <span class="font28 scale-in-center text-center">
-          <i class="material-icons fc-yellow md-42 scale-in-center">check_circle</i>
+          <i class="material-icons fc-yellow md-42 scale-in-center">&#xE86C;</i>
           Submitted Successfully!
         </span>
         <p>Your friend will receive the invitation and you will receive points when they sign-up on ReviwionWise.</p>

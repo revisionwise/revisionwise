@@ -31,26 +31,26 @@
                 ng-show="value.user_set.marked === true || (value.user_set.marked === false && value.user_set.progress > 0)"
                 class="cursor-pointer"
                 ng-click="verifySetAccess(value.id, value.name, value.currency, value.price, value.user_set.is_expired, 'restart')">
-                RESTART&nbsp;<i class="material-icons md-18">replay</i>
+                RESTART&nbsp;<i class="material-icons md-18">&#xE042;</i>
               </span>
             </span>
             <span
               ng-show="value.user_set.marked === false && value.user_set.progress > 0"
               class="continue fc-teal cursor-pointer text-right"
               ng-click="verifySetAccess(value.id, value.name, value.currency, value.price, value.user_set.is_expired, 'continue')">
-              CONTINUE&nbsp;<i class="material-icons md-18">arrow_forward</i>
+              CONTINUE&nbsp;<i class="material-icons md-18">&#xE5C8;</i>
             </span>
             <span
               ng-show="!value.user_set || (value.user_set.progress === 0 || value.user_set.progress === null)"
               class="start fc-green cursor-pointer text-right fade-in-top"
               ng-click="verifySetAccess(value.id, value.name, value.currency, value.price, value.user_set.is_expired, 'start')">
-              START&nbsp;<i class="material-icons md-18">play_arrow</i>
+              START&nbsp;<i class="material-icons md-18">&#xE037;</i>
             </span>
             <span
               ng-show="value.user_set.marked === true"
               class="review fc-yellow cursor-pointer text-right fade-in-top"
               ng-click="verifySetAccess(value.id, value.name, value.currency, value.price, value.user_set.is_expired, 'review')">
-              REVIEW&nbsp;<i class="material-icons md-18">rate_review</i>
+              REVIEW&nbsp;<i class="material-icons md-18">&#xE560;</i>
             </span>
           </div>
         </div>

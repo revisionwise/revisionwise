@@ -27,7 +27,7 @@
         <span ng-controller="authController"><md-button href="" title="Join RevisionWise" ng-click="register_from_demo()" class="green normal">Join RevisionWise</md-button></span>
       </li>
       <li ng-show="user_token && !reqHome">
-        <a href="#!/" target="_self" class="" title="Home"><i class="material-icons md-24">home</i></a>
+        <a href="#!/" target="_self" class="" title="Home"><i class="material-icons md-24">&#xE88A;</i></a>
       </li>
       <li ng-show="user_token && !reqHome">
         <a href="#!/dashboard" target="_self" class="" title="Dashboard">Dashboard</a>
@@ -54,11 +54,11 @@
       <!-- Standard user menu when logged in -->
       <li ng-show="user_token && user_status === true" class="loggedin-user font18 fc-subtitle"> <!-- show user menu when user is logged in -->
         <span class="menu-item points">
-          <i class="material-icons md-24">card_giftcard</i>&nbsp;{{ user_points }}&nbsp;<span class="font12">Points</span>
+          <i class="material-icons md-24">&#xE8F6;</i>&nbsp;{{ user_points }}&nbsp;<span class="font12">Points</span>
         </span>
         <span class="menu-item wallet">
           <span>
-            <i class="material-icons md-24">account_balance_wallet</i>&nbsp;{{ user_currency }}.
+            <i class="material-icons md-24">&#xE850;</i>&nbsp;{{ user_currency }}.
             <span ng-hide="updating || loading_profile">{{ user_wallet }}</span>
             <span class="loader" ng-show="updating || loading_profile"><img src="assets/img/loader.gif" alt=""></span>
           </span>
@@ -66,7 +66,7 @@
         <span class="menu-item name" ng-hide="logging_out">
           <md-menu md-position-mode="target-right target">
             <md-button ng-click="$mdOpenMenu()" class="md-icon-button" aria-label="Open sample menu">
-              <span md-menu-origin class="transform-initial font18"><i class="material-icons md-24">face</i>&nbsp;{{ user_fname }} </span>
+              <span md-menu-origin class="transform-initial font18"><i class="material-icons md-24">&#xE87C;</i>&nbsp;{{ user_fname }} </span>
             </md-button>
             <md-menu-content width="4">
               <md-menu-item class="cursor-pointer" ng-click="$mdCloseMenu()" md-autofocus="false">
@@ -83,7 +83,7 @@
               </md-menu-item>
               <md-menu-divider></md-menu-divider>
               <md-menu-item class="cursor-pointer" ng-click="logout()">
-                <a target="_self" class="fc-red"><i class="material-icons md-20">power_settings_new</i>&nbsp;Logout</a>
+                <a target="_self" class="fc-red"><i class="material-icons md-20">&#xE8AC;</i>&nbsp;Logout</a>
               </md-menu-item>
             </md-menu-content>
           </md-menu>
@@ -96,7 +96,7 @@
   <!-- Mobile navigation trigger -->
   <nav class="mobile-menu" layout="column" flex>
     <md-button class="md-icon-button no-border-radius" md-direction="right" aria-label="mobile menu" ng-click="toggleMobileMenu()">
-      <i class="material-icons md-48">menu</i>
+      <i class="material-icons md-48">&#xE5D2;</i>
     </md-button>
   </nav>
 </md-content>
