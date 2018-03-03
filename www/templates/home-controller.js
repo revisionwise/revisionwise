@@ -7,7 +7,7 @@ rwApp.controller('homeController', function($scope, $rootScope, Globals, Page, $
 
   if ($location.path() === '/') {
     // Sets page title and body class
-    Page.setTitle('Home - ');
+      Page.setTitle('Better 8-4-4/K.C.P.E. revision - ');
     Page.setBodyClass('home');
   }
 
