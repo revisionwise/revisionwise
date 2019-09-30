@@ -7,7 +7,7 @@
 
     $ phonegap add android
     $ phonegap build android
-    $ phonegap run adnroid
+    $ phonegap run android
 
 ### Desktop
 
